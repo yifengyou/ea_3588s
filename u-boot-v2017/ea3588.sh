@@ -5,7 +5,7 @@ set -xe
 # CROSS_COMPILE_ARM64=~/toolchains/gcc-arm-11.2-2022.02-x86_64-aarch64-none-linux-gnu/bin/aarch64-none-linux-gnu-
 
 GCC=`realpath ../gcc-arm-10.3-2021.07-x86_64-aarch64-none-linux-gnu`
-CROSS_COMPILE_ARM64=${GCC}/bin/aarch64-none-linux-gnu-
+CROSS_COMPILE_ARM64=aarch64-linux-gnu-
 echo "using gcc: [${CROSS_COMPILE_ARM64}]"
 
 # Clean the old files.
