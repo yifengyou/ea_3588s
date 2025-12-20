@@ -1,0 +1,169 @@
+root@linaro-alip:/home/poplt# cat /sys/kernel/debug/pinctrl/*/pinmux-pins
+Pinmux settings per pin
+Format: pin (name): mux_owner gpio_owner hog?
+pin 0 (gpio0-0): wireless-wlan (GPIO UNCLAIMED) function wireless-wlan group wifi-gpio
+pin 1 (gpio0-1): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 2 (gpio0-2): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 3 (gpio0-3): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 4 (gpio0-4): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 5 (gpio0-5): feb20000.spi (GPIO UNCLAIMED) function spi2 group spi2m2-pins
+pin 6 (gpio0-6): feb20000.spi (GPIO UNCLAIMED) function spi2 group spi2m2-pins
+pin 7 (gpio0-7): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 8 (gpio0-8): 6-0051 (GPIO UNCLAIMED) function hym8563 group hym8563-int
+pin 9 (gpio0-9): feb20000.spi (GPIO UNCLAIMED) function spi2 group spi2m2-cs0
+pin 10 (gpio0-10): vcc5v0-radar gpio0:10 function vcc5v0_radar group vcc5v0-radar-en
+pin 11 (gpio0-11): feb20000.spi (GPIO UNCLAIMED) function spi2 group spi2m2-pins
+pin 12 (gpio0-12): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 13 (gpio0-13): fiq-debugger (GPIO UNCLAIMED) function uart2 group uart2m0-xfer
+pin 14 (gpio0-14): fiq-debugger (GPIO UNCLAIMED) function uart2 group uart2m0-xfer
+pin 15 (gpio0-15): feaa0000.i2c (GPIO UNCLAIMED) function i2c2 group i2c2m0-xfer
+pin 16 (gpio0-16): feaa0000.i2c (GPIO UNCLAIMED) function i2c2 group i2c2m0-xfer
+pin 17 (gpio0-17): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 18 (gpio0-18): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 19 (gpio0-19): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 20 (gpio0-20): feac0000.i2c (GPIO UNCLAIMED) function i2c4 group i2c4m2-xfer
+pin 21 (gpio0-21): feac0000.i2c (GPIO UNCLAIMED) function i2c4 group i2c4m2-xfer
+pin 22 (gpio0-22): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 23 (gpio0-23): sdio-pwrseq gpio0:23 function sdmmc group sdmmc-pwren
+pin 24 (gpio0-24): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 25 (gpio0-25): fd880000.i2c (GPIO UNCLAIMED) function i2c0 group i2c0m2-xfer
+pin 26 (gpio0-26): fd880000.i2c (GPIO UNCLAIMED) function i2c0 group i2c0m2-xfer
+pin 27 (gpio0-27): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 28 (gpio0-28): wireless-bluetooth gpio0:28 function wireless-bluetooth group bt-gpio
+pin 29 (gpio0-29): wireless-bluetooth gpio0:29 function wireless-bluetooth group bt-gpio
+pin 30 (gpio0-30): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 31 (gpio0-31): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 32 (gpio1-0): i2c-gpio gpio1:32 function i2c_gpio group i2c-gpio-pins
+pin 33 (gpio1-1): i2c-gpio gpio1:33 function i2c_gpio group i2c-gpio-pins
+pin 34 (gpio1-2): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 35 (gpio1-3): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 36 (gpio1-4): vbus5v0-typec gpio1:36 function usb-typec group typec5v-pwren
+pin 37 (gpio1-5): fde80000.hdmi (GPIO UNCLAIMED) function hdmi group hdmim0-tx0-hpd
+pin 38 (gpio1-6): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 39 (gpio1-7): (MUX UNCLAIMED) gpio1:39
+pin 40 (gpio1-8): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 41 (gpio1-9): feb00000.spi (GPIO UNCLAIMED) function spi0 group spi0m2-pins
+pin 42 (gpio1-10): feb00000.spi (GPIO UNCLAIMED) function spi0 group spi0m2-pins
+pin 43 (gpio1-11): feb00000.spi (GPIO UNCLAIMED) function spi0 group spi0m2-pins
+pin 44 (gpio1-12): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 45 (gpio1-13): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 46 (gpio1-14): fead0000.i2c (GPIO UNCLAIMED) function i2c5 group i2c5m3-xfer
+pin 47 (gpio1-15): fead0000.i2c (GPIO UNCLAIMED) function i2c5 group i2c5m3-xfer
+pin 48 (gpio1-16): feb60000.serial (GPIO UNCLAIMED) function uart3 group uart3m0-xfer
+pin 49 (gpio1-17): feb60000.serial (GPIO UNCLAIMED) function uart3 group uart3m0-xfer
+pin 50 (gpio1-18): 6-0009 (GPIO UNCLAIMED) function i2s0 group i2s0-mclk
+pin 51 (gpio1-19): fe470000.i2s (GPIO UNCLAIMED) function i2s0 group i2s0-idle
+pin 52 (gpio1-20): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 53 (gpio1-21): fe470000.i2s (GPIO UNCLAIMED) function i2s0 group i2s0-idle
+pin 54 (gpio1-22): (MUX UNCLAIMED) gpio1:54
+pin 55 (gpio1-23): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 56 (gpio1-24): feb90000.serial (GPIO UNCLAIMED) function uart6 group uart6m2-xfer
+pin 57 (gpio1-25): feb90000.serial (GPIO UNCLAIMED) function uart6 group uart6m2-xfer
+pin 58 (gpio1-26): feb70000.serial (GPIO UNCLAIMED) function uart4 group uart4m0-xfer
+pin 59 (gpio1-27): feb70000.serial (GPIO UNCLAIMED) function uart4 group uart4m0-xfer
+pin 60 (gpio1-28): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 61 (gpio1-29): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 62 (gpio1-30): feca0000.i2c (GPIO UNCLAIMED) function i2c8 group i2c8m2-xfer
+pin 63 (gpio1-31): feca0000.i2c (GPIO UNCLAIMED) function i2c8 group i2c8m2-xfer
+pin 64 (gpio2-0): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 65 (gpio2-1): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 66 (gpio2-2): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 67 (gpio2-3): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 68 (gpio2-4): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 69 (gpio2-5): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 70 (gpio2-6): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 71 (gpio2-7): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 72 (gpio2-8): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 73 (gpio2-9): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 74 (gpio2-10): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 75 (gpio2-11): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 76 (gpio2-12): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 77 (gpio2-13): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 78 (gpio2-14): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 79 (gpio2-15): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 80 (gpio2-16): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 81 (gpio2-17): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 82 (gpio2-18): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 83 (gpio2-19): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 84 (gpio2-20): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 85 (gpio2-21): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 86 (gpio2-22): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 87 (gpio2-23): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 88 (gpio2-24): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 89 (gpio2-25): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 90 (gpio2-26): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 91 (gpio2-27): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 92 (gpio2-28): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 93 (gpio2-29): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 94 (gpio2-30): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 95 (gpio2-31): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 96 (gpio3-0): febe0020.pwm (GPIO UNCLAIMED) function pwm10 group pwm10m0-pins
+pin 97 (gpio3-1): (MUX UNCLAIMED) gpio3:97
+pin 98 (gpio3-2): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 99 (gpio3-3): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 100 (gpio3-4): vdd-4v6-a gpio3:100 function vdd4v6pwr group vdd-4v6-pwren
+pin 101 (gpio3-5): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 102 (gpio3-6): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 103 (gpio3-7): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 104 (gpio3-8): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 105 (gpio3-9): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 106 (gpio3-10): fd8b0030.pwm (GPIO UNCLAIMED) function pwm3 group pwm3m1-pins
+pin 107 (gpio3-11): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 108 (gpio3-12): vcc-5v0-s gpio3:108 function vcc5vpwr group vcc-5v0-s-pwren
+pin 109 (gpio3-13): fea60000.can (GPIO UNCLAIMED) function can1 group can1m0-pins
+pin 110 (gpio3-14): fea60000.can (GPIO UNCLAIMED) function can1 group can1m0-pins
+pin 111 (gpio3-15): wireless-bluetooth gpio3:111 function wireless-bluetooth group bt-gpio
+pin 112 (gpio3-16): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 113 (gpio3-17): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 114 (gpio3-18): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 115 (gpio3-19): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 116 (gpio3-20): feb80000.serial (GPIO UNCLAIMED) function uart5 group uart5m1-xfer
+pin 117 (gpio3-21): feb80000.serial (GPIO UNCLAIMED) function uart5 group uart5m1-xfer
+pin 118 (gpio3-22): led-controller gpio3:118 function led group led-status
+pin 119 (gpio3-23): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 120 (gpio3-24): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 121 (gpio3-25): fe190000.pcie gpio3:121 function pcie2x1l2 group pcie-reset
+pin 122 (gpio3-26): wireless-bluetooth gpio3:122 function uart9 group uart9m2-rtsn
+pin 123 (gpio3-27): febc0000.serial (GPIO UNCLAIMED) function uart9 group uart9m2-ctsn
+pin 124 (gpio3-28): febc0000.serial (GPIO UNCLAIMED) function uart9 group uart9m2-xfer
+pin 125 (gpio3-29): febc0000.serial (GPIO UNCLAIMED) function uart9 group uart9m2-xfer
+pin 126 (gpio3-30): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 127 (gpio3-31): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 128 (gpio4-0): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 129 (gpio4-1): speaker-amp gpio4:129 function amplifier group amplifier-pwren
+pin 130 (gpio4-2): 8-005b (GPIO UNCLAIMED) function aw9110_1 group aw9110-1-int
+pin 131 (gpio4-3): fd890000.serial (GPIO UNCLAIMED) function uart0 group uart0m2-xfer
+pin 132 (gpio4-4): fd890000.serial (GPIO UNCLAIMED) function uart0 group uart0m2-xfer
+pin 133 (gpio4-5): 6-004e (GPIO UNCLAIMED) function usb-typec group usbc0-int
+pin 134 (gpio4-6): 8-0058 (GPIO UNCLAIMED) function aw9110_0 group aw9110-0-int
+pin 135 (gpio4-7): feb00000.spi gpio4:135 function spi0 group spi0m2-cs0
+pin 136 (gpio4-8): fec80000.i2c (GPIO UNCLAIMED) function i2c6 group i2c6m3-xfer
+pin 137 (gpio4-9): fec80000.i2c (GPIO UNCLAIMED) function i2c6 group i2c6m3-xfer
+pin 138 (gpio4-10): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 139 (gpio4-11): vcc5v0-host gpio4:139 function usb group vcc5v0-host-en
+pin 140 (gpio4-12): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 141 (gpio4-13): (MUX UNCLAIMED) gpio4:141
+pin 142 (gpio4-14): (MUX UNCLAIMED) gpio4:142
+pin 143 (gpio4-15): fde80000.hdmi (GPIO UNCLAIMED) function hdmi group hdmim0-tx0-scl
+pin 144 (gpio4-16): fde80000.hdmi (GPIO UNCLAIMED) function hdmi group hdmim0-tx0-sda
+pin 145 (gpio4-17): fde80000.hdmi (GPIO UNCLAIMED) function hdmi group hdmim0-tx0-cec
+pin 146 (gpio4-18): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 147 (gpio4-19): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 148 (gpio4-20): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 149 (gpio4-21): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 150 (gpio4-22): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 151 (gpio4-23): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 152 (gpio4-24): fe2c0000.mmc (GPIO UNCLAIMED) function sdmmc group sdmmc-bus4
+pin 153 (gpio4-25): fe2c0000.mmc (GPIO UNCLAIMED) function sdmmc group sdmmc-bus4
+pin 154 (gpio4-26): fe2c0000.mmc (GPIO UNCLAIMED) function sdmmc group sdmmc-bus4
+pin 155 (gpio4-27): fe2c0000.mmc (GPIO UNCLAIMED) function sdmmc group sdmmc-bus4
+pin 156 (gpio4-28): fe2c0000.mmc (GPIO UNCLAIMED) function sdmmc group sdmmc-cmd
+pin 157 (gpio4-29): fe2c0000.mmc (GPIO UNCLAIMED) function sdmmc group sdmmc-clk
+pin 158 (gpio4-30): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 159 (gpio4-31): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+Pinmux settings per pin
+Format: pin (name): mux_owner gpio_owner hog?
+pin 0 (gpio_pwrctrl1): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 1 (gpio_pwrctrl2): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 2 (gpio_pwrctrl3): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+root@linaro-alip:/home/poplt#

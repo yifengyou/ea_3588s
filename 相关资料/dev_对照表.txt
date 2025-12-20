@@ -1,0 +1,793 @@
+     ┌────────────────────────────────────────────────────────────────────┐
+     │                        ? MobaXterm 20.3 ?                          │
+     │            (SSH client, X-server and networking tools)             │
+     │                                                                    │
+     │ ? SSH session to poplt@192.168.117.5                               │
+     │   ? SSH compression : ?                                            │
+     │   ? SSH-browser     : ?                                            │
+     │   ? X11-forwarding  : ?  (remote display is forwarded through SSH) │
+     │   ? DISPLAY         : ?  (automatically set on remote server)      │
+     │                                                                    │
+     │ ? For more info, ctrl+click on help or visit our website           │
+     └────────────────────────────────────────────────────────────────────┘
+
+Linux linaro-alip 5.10.160 #1 SMP Tue Aug 6 06:32:15 UTC 2024 aarch64
+
+The programs included with the Debian GNU/Linux system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+
+Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
+permitted by applicable law.
+Last login: Mon May 27 17:42:33 2024 from 192.168.117.1
+[poplt@linaro-alip ~]$
+[poplt@linaro-alip ~]$
+[poplt@linaro-alip ~]$ cat /sys
+sys/    system/
+[poplt@linaro-alip ~]$ cat /sys/class/thermal/thermal_zone/temp
+cat: /sys/class/thermal/thermal_zone/temp: 没有那个文件或目录
+[poplt@linaro-alip ~]$ ls /sys/class/thermal/thermal_zone
+ls: 无法访问 '/sys/class/thermal/thermal_zone': 没有那个文件或目录
+[poplt@linaro-alip ~]$
+[poplt@linaro-alip ~]$
+[poplt@linaro-alip ~]$ cd /
+[poplt@linaro-alip /]$ cd sys
+[poplt@linaro-alip sys]$ cd class/
+[poplt@linaro-alip class]$ ls
+android_usb  block          devlink         extcon    i2c-adapter  mdio_bus   net             pps        rtc          spi_host       tpmrm      usbmon       watchdog
+ata_device   bluetooth      dma             gpio      i2c-dev      mem        nvme            ptp        scsi_device  spi_master     tty        usb_role     zram-control
+ata_link     bsg            dma_heap        graphics  ieee80211    misc       nvme-subsystem  pwm        scsi_disk    spi_transport  typec      vc
+ata_port     devcoredump    drm             hdmirx    input        mmc_host   pci_bus         regulator  scsi_host    tee            typec_mux  video4linux
+backlight    devfreq        drm_dp_aux_dev  hidraw    iommu        mpp_class  phy             rfkill     sound        thermal        ubi        vtconsole
+bdi          devfreq-event  dvb             hwmon     leds         mtd        power_supply    rkwifi     spidev       tpm            udc        wakeup
+[poplt@linaro-alip class]$ cd thermal/
+[poplt@linaro-alip thermal]$ ls
+cooling_device0  cooling_device1  cooling_device2  cooling_device3  thermal_zone0  thermal_zone1  thermal_zone2  thermal_zone3  thermal_zone4  thermal_zone5  thermal_zone6
+[poplt@linaro-alip thermal]$ cd cooling_device
+-bash: cd: cooling_device: 没有那个文件或目录
+[poplt@linaro-alip thermal]$ cat cooling_device
+cat: cooling_device: 没有那个文件或目录
+[poplt@linaro-alip thermal]$
+[poplt@linaro-alip thermal]$ cd ..
+[poplt@linaro-alip class]$ cd thermal/
+[poplt@linaro-alip thermal]$ cd thermal_zone0/
+[poplt@linaro-alip thermal_zone0]$ ls
+available_policies  cdev1             cdev2_trip_point  cdev3_weight     k_i   offset  subsystem          trip_point_0_temp  trip_point_1_type  type
+cdev0               cdev1_trip_point  cdev2_weight      hwmon0           k_po  policy  sustainable_power  trip_point_0_type  trip_point_2_hyst  uevent
+cdev0_trip_point    cdev1_weight      cdev3             integral_cutoff  k_pu  power   temp               trip_point_1_hyst  trip_point_2_temp
+cdev0_weight        cdev2             cdev3_trip_point  k_d              mode  slope   trip_point_0_hyst  trip_point_1_temp  trip_point_2_type
+[poplt@linaro-alip thermal_zone0]$ cat temp
+44384
+[poplt@linaro-alip thermal_zone0]$
+[poplt@linaro-alip thermal_zone0]$ cat temp
+45307
+[poplt@linaro-alip thermal_zone0]$ cat temp
+44384
+[poplt@linaro-alip thermal_zone0]$ cat temp
+44384
+[poplt@linaro-alip thermal_zone0]$ cat temp
+45307
+[poplt@linaro-alip thermal_zone0]$ cat temp
+45307
+[poplt@linaro-alip thermal_zone0]$ cat temp
+45307
+[poplt@linaro-alip thermal_zone0]$ cat temp
+44384
+[poplt@linaro-alip thermal_zone0]$ cat temp
+44384
+[poplt@linaro-alip thermal_zone0]$ cat temp
+44384
+[poplt@linaro-alip thermal_zone0]$ cat temp
+45307
+[poplt@linaro-alip thermal_zone0]$
+[poplt@linaro-alip thermal_zone0]$
+[poplt@linaro-alip thermal_zone0]$
+[poplt@linaro-alip thermal_zone0]$ cd /mnt/
+[poplt@linaro-alip mnt]$ ls
+external_sd  sdcard  udisk  usb_storage
+[poplt@linaro-alip mnt]$ cd udisk/
+[poplt@linaro-alip udisk]$ ls
+backup_rootfs  lost+found
+[poplt@linaro-alip udisk]$ cd backup_rootfs/
+[poplt@linaro-alip backup_rootfs]$ ls
+bin  boot  data  etc  home  lib  oem  root  sbin  system  usr  var  vendor
+[poplt@linaro-alip backup_rootfs]$ cd lib/
+-bash: cd: lib/: 权限不够
+[poplt@linaro-alip backup_rootfs]$ sudo cd lib
+sudo: cd：找不到命令
+[poplt@linaro-alip backup_rootfs]$
+[poplt@linaro-alip backup_rootfs]$
+[poplt@linaro-alip backup_rootfs]$
+[poplt@linaro-alip backup_rootfs]$ ls lib
+ls: 无法打开目录 'lib': 权限不够
+[poplt@linaro-alip backup_rootfs]$
+[poplt@linaro-alip backup_rootfs]$
+[poplt@linaro-alip backup_rootfs]$ ls /dev
+block            gpiochip4    loop0         mmcblk0boot1  rtc       tty14  tty31  tty49  tty9      usbmon6      vcs7            video0   video26  video43  video60
+bsg              gpiochip5    loop1         mmcblk0p1     rtc0      tty15  tty32  tty5   ttyFIQ0   v4l          vcsa            video1   video27  video44  video61
+bus              gpiochip6    loop2         mmcblk0p2     sda       tty16  tty33  tty50  ttyS0     v4l-subdev0  vcsa1           video10  video28  video45  video7
+char             gpiochip7    loop3         mmcblk0p3     sda1      tty17  tty34  tty51  ttyS3     v4l-subdev1  vcsa2           video11  video29  video46  video8
+console          hwrng        loop4         mmcblk0p4     shm       tty18  tty35  tty52  ttyS4     v4l-subdev2  vcsa3           video12  video3   video47  video9
+cpu_dma_latency  i2c-0        loop5         mmcblk0p5     snd       tty19  tty36  tty53  ttyS5     v4l-subdev3  vcsa4           video13  video30  video48  video-camera0
+crypto           i2c-10       loop6         mmcblk0p6     stderr    tty2   tty37  tty54  ttyS6     v4l-subdev4  vcsa5           video14  video31  video49  video-dec0
+disk             i2c-11       loop7         mmcblk0p7     stdin     tty20  tty38  tty55  ttyS9     v4l-subdev5  vcsa6           video15  video32  video5   video-enc0
+dma_heap         i2c-2        loop-control  mmcblk0p8     stdout    tty21  tty39  tty56  ubi_ctrl  v4l-subdev6  vcsa7           video16  video33  video50  zero
+dri              i2c-4        mali0         mmcblk0rpmb   sw_sync   tty22  tty4   tty57  uhid      v4l-subdev7  vcsu            video17  video34  video51  zram0
+drm_dp_aux0      i2c-5        media0        mpp_service   tee0      tty23  tty40  tty58  uinput    v4l-subdev8  vcsu1           video18  video35  video52
+fb0              i2c-6        media1        null          teepriv0  tty24  tty41  tty59  urandom   v4l-subdev9  vcsu2           video19  video36  video53
+fd               i2c-8        media2        port          tty       tty25  tty42  tty6   usb-ffs   vcs          vcsu3           video2   video37  video54
+full             i2c-9        media3        ptmx          tty0      tty26  tty43  tty60  usbmon0   vcs1         vcsu4           video20  video38  video55
+fuse             iio:device0  media4        pts           tty1      tty27  tty44  tty61  usbmon1   vcs2         vcsu5           video21  video39  video56
+gpiochip0        initctl      media5        ram0          tty10     tty28  tty45  tty62  usbmon2   vcs3         vcsu6           video22  video4   video57
+gpiochip1        input        mem           random        tty11     tty29  tty46  tty63  usbmon3   vcs4         vcsu7           video23  video40  video58
+gpiochip2        kmsg         mmcblk0       rfkill        tty12     tty3   tty47  tty7   usbmon4   vcs5         vendor_storage  video24  video41  video59
+gpiochip3        log          mmcblk0boot0  rga           tty13     tty30  tty48  tty8   usbmon5   vcs6         vhci            video25  video42  video6
+[poplt@linaro-alip backup_rootfs]$
+Remote side unexpectedly closed network connection
+
+─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+Session stopped
+    - Press <return> to exit tab
+    - Press R to restart session
+    - Press S to save terminal output to file
+     ┌────────────────────────────────────────────────────────────────────┐
+     │                        ? MobaXterm 20.3 ?                          │
+     │            (SSH client, X-server and networking tools)             │
+     │                                                                    │
+     │ ? SSH session to poplt@192.168.117.5                               │
+     │   ? SSH compression : ?                                            │
+     │   ? SSH-browser     : ?                                            │
+     │   ? X11-forwarding  : ?  (remote display is forwarded through SSH) │
+     │   ? DISPLAY         : ?  (automatically set on remote server)      │
+     │                                                                    │
+     │ ? For more info, ctrl+click on help or visit our website           │
+     └────────────────────────────────────────────────────────────────────┘
+
+Linux linaro-alip 5.10.160 #1 SMP Tue Aug 6 06:32:15 UTC 2024 aarch64
+
+The programs included with the Debian GNU/Linux system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+
+Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
+permitted by applicable law.
+Last login: Mon May 27 18:32:18 2024 from 192.168.117.1
+[poplt@linaro-alip ~]$
+[poplt@linaro-alip ~]$
+[poplt@linaro-alip ~]$
+[poplt@linaro-alip ~]$
+[poplt@linaro-alip ~]$
+[poplt@linaro-alip ~]$
+[poplt@linaro-alip ~]$ sudo su
+root@linaro-alip:/home/poplt#
+root@linaro-alip:/home/poplt#
+root@linaro-alip:/home/poplt#
+root@linaro-alip:/home/poplt# cat /
+bin/              etc/              lost+found/       opt/              root/             sha256sum.README  system/           usr/
+boot/             home/             media/            proc/             run/              sha256sum.txt     tmp/              var/
+data/             info/             mnt/              .resized          sbin/             srv/              udisk/            vendor/
+dev/              lib/              oem/              rockchip-test/    sdcard/           sys/              userdata/
+root@linaro-alip:/home/poplt# cat /
+bin/              etc/              lost+found/       opt/              root/             sha256sum.README  system/           usr/
+boot/             home/             media/            proc/             run/              sha256sum.txt     tmp/              var/
+data/             info/             mnt/              .resized          sbin/             srv/              udisk/            vendor/
+dev/              lib/              oem/              rockchip-test/    sdcard/           sys/              userdata/
+root@linaro-alip:/home/poplt# cat /sys
+sys/    system/
+root@linaro-alip:/home/poplt# cat /sys
+sys/    system/
+root@linaro-alip:/home/poplt# cat /sys/kernel/
+boot_mode       config/         dmabuf/         fscaps          irq/            notes           rcu_expedited   security/       software_nodes/ uevent_seqnum
+cgroup/         debug/          dma_heap/       iommu_groups/   mm/             profiling       rcu_normal      slab/           tracing/        wakeup_reasons/
+root@linaro-alip:/home/poplt# cat /sys/kernel/
+boot_mode       config/         dmabuf/         fscaps          irq/            notes           rcu_expedited   security/       software_nodes/ uevent_seqnum
+cgroup/         debug/          dma_heap/       iommu_groups/   mm/             profiling       rcu_normal      slab/           tracing/        wakeup_reasons/
+root@linaro-alip:/home/poplt# cat /sys/kernel/debug/
+asoc/                    devfreq/                 dynamic_debug/           hid/                     opp/                     rknpu/                   swiotlb/
+bdi/                     device_component/        energy_model/            ieee80211/               pinctrl/                 rkrga/                   sync/
+block/                   devices_deferred         fault_around_bytes       iio/                     pm_genpd/                sched_debug              tracing/
+bluetooth/               dma_buf/                 fe190000.pcie/           mali0/                   provoke-crash/           sched_features           ubi/
+cec/                     dmaengine/               fea10000.dma-controller  memblock/                pvtm/                    slab/                    ubifs/
+clear_warn_once          dma_pools/               fea30000.dma-controller  mmc0/                    pwm                      sleep_time               usb/
+clk/                     dri/                     fed10000.dma-controller  mmc1/                    regmap/                  stmmaceth/               wakeup_sources
+debug_enabled            dw-hdmi0/                gpio                     mtd/                     regulator/               suspend_stats
+root@linaro-alip:/home/poplt# cat /sys/kernel/debug/
+asoc/                    devfreq/                 dynamic_debug/           hid/                     opp/                     rknpu/                   swiotlb/
+bdi/                     device_component/        energy_model/            ieee80211/               pinctrl/                 rkrga/                   sync/
+block/                   devices_deferred         fault_around_bytes       iio/                     pm_genpd/                sched_debug              tracing/
+bluetooth/               dma_buf/                 fe190000.pcie/           mali0/                   provoke-crash/           sched_features           ubi/
+cec/                     dmaengine/               fea10000.dma-controller  memblock/                pvtm/                    slab/                    ubifs/
+clear_warn_once          dma_pools/               fea30000.dma-controller  mmc0/                    pwm                      sleep_time               usb/
+clk/                     dri/                     fed10000.dma-controller  mmc1/                    regmap/                  stmmaceth/               wakeup_sources
+debug_enabled            dw-hdmi0/                gpio                     mtd/                     regulator/               suspend_stats
+root@linaro-alip:/home/poplt# cat /sys/kernel/debug/pinctrl/
+pinctrl-devices                     pinctrl-handles                     pinctrl-maps                        pinctrl-rockchip-pinctrl/           rk806-pinctrl.1.auto-rk806-pinctrl/
+root@linaro-alip:/home/poplt# cat /sys/kernel/debug/pinctrl/
+pinctrl-devices                     pinctrl-handles                     pinctrl-maps                        pinctrl-rockchip-pinctrl/           rk806-pinctrl.1.auto-rk806-pinctrl/
+root@linaro-alip:/home/poplt# cat /sys/kernel/debug/pinctrl/
+pinctrl-devices                     pinctrl-handles                     pinctrl-maps                        pinctrl-rockchip-pinctrl/           rk806-pinctrl.1.auto-rk806-pinctrl/
+root@linaro-alip:/home/poplt# cat /sys/kernel/debug/pinctrl/
+pinctrl-devices                     pinctrl-handles                     pinctrl-maps                        pinctrl-rockchip-pinctrl/           rk806-pinctrl.1.auto-rk806-pinctrl/
+root@linaro-alip:/home/poplt# cat /sys/kernel/debug/pinctrl/
+pinctrl-devices                     pinctrl-handles                     pinctrl-maps                        pinctrl-rockchip-pinctrl/           rk806-pinctrl.1.auto-rk806-pinctrl/
+root@linaro-alip:/home/poplt# cat /sys/kernel/debug/pinctrl/
+pinctrl-devices                     pinctrl-handles                     pinctrl-maps                        pinctrl-rockchip-pinctrl/           rk806-pinctrl.1.auto-rk806-pinctrl/
+root@linaro-alip:/home/poplt# cat /sys/kernel/debug/pinctrl/
+pinctrl-devices                     pinctrl-handles                     pinctrl-maps                        pinctrl-rockchip-pinctrl/           rk806-pinctrl.1.auto-rk806-pinctrl/
+root@linaro-alip:/home/poplt# cat /sys/kernel/debug/pinctrl/
+pinctrl-devices                     pinctrl-handles                     pinctrl-maps                        pinctrl-rockchip-pinctrl/           rk806-pinctrl.1.auto-rk806-pinctrl/
+root@linaro-alip:/home/poplt# cat /sys/kernel/debug/pinctrl/
+pinctrl-devices                     pinctrl-handles                     pinctrl-maps                        pinctrl-rockchip-pinctrl/           rk806-pinctrl.1.auto-rk806-pinctrl/
+root@linaro-alip:/home/poplt# cat /sys/kernel/debug/pinctrl/pinctrl-devices
+name [pinmux] [pinconf]
+rockchip-pinctrl yes yes
+rk806-pinctrl yes yes
+root@linaro-alip:/home/poplt# cat /sys/kernel/debug/pinctrl/pinctrl-rockchip-pinctrl/
+cat: /sys/kernel/debug/pinctrl/pinctrl-rockchip-pinctrl/: 是一个目录
+root@linaro-alip:/home/poplt# cat /sys/kernel/debug/pinctrl/pinctrl-rockchip-pinctrl/
+gpio-ranges       pinconf-groups    pinconf-pins      pingroups         pinmux-functions  pinmux-pins       pins
+root@linaro-alip:/home/poplt# cat /sys/kernel/debug/pinctrl/pinctrl-rockchip-pinctrl/
+gpio-ranges       pinconf-groups    pinconf-pins      pingroups         pinmux-functions  pinmux-pins       pins
+root@linaro-alip:/home/poplt# cat /sys/kernel/debug/pinctrl/pinctrl-rockchip-pinctrl/
+gpio-ranges       pinconf-groups    pinconf-pins      pingroups         pinmux-functions  pinmux-pins       pins
+root@linaro-alip:/home/poplt# cat /sys/kernel/debug/pinctrl/pinctrl-rockchip-pinctrl/
+gpio-ranges       pinconf-groups    pinconf-pins      pingroups         pinmux-functions  pinmux-pins       pins
+root@linaro-alip:/home/poplt# cat /sys/kernel/debug/pinctrl/pinctrl-rockchip-pinctrl/
+gpio-ranges       pinconf-groups    pinconf-pins      pingroups         pinmux-functions  pinmux-pins       pins
+root@linaro-alip:/home/poplt# cat /sys/kernel/debug/pinctrl/pinctrl-rockchip-pinctrl/gpio-ranges
+GPIO ranges handled:
+0: gpio0 GPIOS [0 - 31] PINS [0 - 31]
+0: gpio1 GPIOS [32 - 63] PINS [32 - 63]
+0: gpio2 GPIOS [64 - 95] PINS [64 - 95]
+0: gpio3 GPIOS [96 - 127] PINS [96 - 127]
+0: gpio4 GPIOS [128 - 159] PINS [128 - 159]
+root@linaro-alip:/home/poplt# cat /sys/kernel/debug/pinctrl/pinctrl-rockchip-pinctrl/pin
+pinconf-groups    pinconf-pins      pingroups         pinmux-functions  pinmux-pins       pins
+root@linaro-alip:/home/poplt# cat /sys/kernel/debug/pinctrl/pinctrl-rockchip-pinctrl/pin
+pinconf-groups    pinconf-pins      pingroups         pinmux-functions  pinmux-pins       pins
+root@linaro-alip:/home/poplt# cat /sys/kernel/debug/pinctrl/pinctrl-rockchip-pinctrl/pins
+registered pins: 160
+pin 0 (gpio0-0) 0:gpio0
+pin 1 (gpio0-1) 1:gpio0
+pin 2 (gpio0-2) 2:gpio0
+pin 3 (gpio0-3) 3:gpio0
+pin 4 (gpio0-4) 4:gpio0
+pin 5 (gpio0-5) 5:gpio0
+pin 6 (gpio0-6) 6:gpio0
+pin 7 (gpio0-7) 7:gpio0
+pin 8 (gpio0-8) 8:gpio0
+pin 9 (gpio0-9) 9:gpio0
+pin 10 (gpio0-10) 10:gpio0
+pin 11 (gpio0-11) 11:gpio0
+pin 12 (gpio0-12) 12:gpio0
+pin 13 (gpio0-13) 13:gpio0
+pin 14 (gpio0-14) 14:gpio0
+pin 15 (gpio0-15) 15:gpio0
+pin 16 (gpio0-16) 16:gpio0
+pin 17 (gpio0-17) 17:gpio0
+pin 18 (gpio0-18) 18:gpio0
+pin 19 (gpio0-19) 19:gpio0
+pin 20 (gpio0-20) 20:gpio0
+pin 21 (gpio0-21) 21:gpio0
+pin 22 (gpio0-22) 22:gpio0
+pin 23 (gpio0-23) 23:gpio0
+pin 24 (gpio0-24) 24:gpio0
+pin 25 (gpio0-25) 25:gpio0
+pin 26 (gpio0-26) 26:gpio0
+pin 27 (gpio0-27) 27:gpio0
+pin 28 (gpio0-28) 28:gpio0
+pin 29 (gpio0-29) 29:gpio0
+pin 30 (gpio0-30) 30:gpio0
+pin 31 (gpio0-31) 31:gpio0
+pin 32 (gpio1-0) 0:gpio1
+pin 33 (gpio1-1) 1:gpio1
+pin 34 (gpio1-2) 2:gpio1
+pin 35 (gpio1-3) 3:gpio1
+pin 36 (gpio1-4) 4:gpio1
+pin 37 (gpio1-5) 5:gpio1
+pin 38 (gpio1-6) 6:gpio1
+pin 39 (gpio1-7) 7:gpio1
+pin 40 (gpio1-8) 8:gpio1
+pin 41 (gpio1-9) 9:gpio1
+pin 42 (gpio1-10) 10:gpio1
+pin 43 (gpio1-11) 11:gpio1
+pin 44 (gpio1-12) 12:gpio1
+pin 45 (gpio1-13) 13:gpio1
+pin 46 (gpio1-14) 14:gpio1
+pin 47 (gpio1-15) 15:gpio1
+pin 48 (gpio1-16) 16:gpio1
+pin 49 (gpio1-17) 17:gpio1
+pin 50 (gpio1-18) 18:gpio1
+pin 51 (gpio1-19) 19:gpio1
+pin 52 (gpio1-20) 20:gpio1
+pin 53 (gpio1-21) 21:gpio1
+pin 54 (gpio1-22) 22:gpio1
+pin 55 (gpio1-23) 23:gpio1
+pin 56 (gpio1-24) 24:gpio1
+pin 57 (gpio1-25) 25:gpio1
+pin 58 (gpio1-26) 26:gpio1
+pin 59 (gpio1-27) 27:gpio1
+pin 60 (gpio1-28) 28:gpio1
+pin 61 (gpio1-29) 29:gpio1
+pin 62 (gpio1-30) 30:gpio1
+pin 63 (gpio1-31) 31:gpio1
+pin 64 (gpio2-0) 0:gpio2
+pin 65 (gpio2-1) 1:gpio2
+pin 66 (gpio2-2) 2:gpio2
+pin 67 (gpio2-3) 3:gpio2
+pin 68 (gpio2-4) 4:gpio2
+pin 69 (gpio2-5) 5:gpio2
+pin 70 (gpio2-6) 6:gpio2
+pin 71 (gpio2-7) 7:gpio2
+pin 72 (gpio2-8) 8:gpio2
+pin 73 (gpio2-9) 9:gpio2
+pin 74 (gpio2-10) 10:gpio2
+pin 75 (gpio2-11) 11:gpio2
+pin 76 (gpio2-12) 12:gpio2
+pin 77 (gpio2-13) 13:gpio2
+pin 78 (gpio2-14) 14:gpio2
+pin 79 (gpio2-15) 15:gpio2
+pin 80 (gpio2-16) 16:gpio2
+pin 81 (gpio2-17) 17:gpio2
+pin 82 (gpio2-18) 18:gpio2
+pin 83 (gpio2-19) 19:gpio2
+pin 84 (gpio2-20) 20:gpio2
+pin 85 (gpio2-21) 21:gpio2
+pin 86 (gpio2-22) 22:gpio2
+pin 87 (gpio2-23) 23:gpio2
+pin 88 (gpio2-24) 24:gpio2
+pin 89 (gpio2-25) 25:gpio2
+pin 90 (gpio2-26) 26:gpio2
+pin 91 (gpio2-27) 27:gpio2
+pin 92 (gpio2-28) 28:gpio2
+pin 93 (gpio2-29) 29:gpio2
+pin 94 (gpio2-30) 30:gpio2
+pin 95 (gpio2-31) 31:gpio2
+pin 96 (gpio3-0) 0:gpio3
+pin 97 (gpio3-1) 1:gpio3
+pin 98 (gpio3-2) 2:gpio3
+pin 99 (gpio3-3) 3:gpio3
+pin 100 (gpio3-4) 4:gpio3
+pin 101 (gpio3-5) 5:gpio3
+pin 102 (gpio3-6) 6:gpio3
+pin 103 (gpio3-7) 7:gpio3
+pin 104 (gpio3-8) 8:gpio3
+pin 105 (gpio3-9) 9:gpio3
+pin 106 (gpio3-10) 10:gpio3
+pin 107 (gpio3-11) 11:gpio3
+pin 108 (gpio3-12) 12:gpio3
+pin 109 (gpio3-13) 13:gpio3
+pin 110 (gpio3-14) 14:gpio3
+pin 111 (gpio3-15) 15:gpio3
+pin 112 (gpio3-16) 16:gpio3
+pin 113 (gpio3-17) 17:gpio3
+pin 114 (gpio3-18) 18:gpio3
+pin 115 (gpio3-19) 19:gpio3
+pin 116 (gpio3-20) 20:gpio3
+pin 117 (gpio3-21) 21:gpio3
+pin 118 (gpio3-22) 22:gpio3
+pin 119 (gpio3-23) 23:gpio3
+pin 120 (gpio3-24) 24:gpio3
+pin 121 (gpio3-25) 25:gpio3
+pin 122 (gpio3-26) 26:gpio3
+pin 123 (gpio3-27) 27:gpio3
+pin 124 (gpio3-28) 28:gpio3
+pin 125 (gpio3-29) 29:gpio3
+pin 126 (gpio3-30) 30:gpio3
+pin 127 (gpio3-31) 31:gpio3
+pin 128 (gpio4-0) 0:gpio4
+pin 129 (gpio4-1) 1:gpio4
+pin 130 (gpio4-2) 2:gpio4
+pin 131 (gpio4-3) 3:gpio4
+pin 132 (gpio4-4) 4:gpio4
+pin 133 (gpio4-5) 5:gpio4
+pin 134 (gpio4-6) 6:gpio4
+pin 135 (gpio4-7) 7:gpio4
+pin 136 (gpio4-8) 8:gpio4
+pin 137 (gpio4-9) 9:gpio4
+pin 138 (gpio4-10) 10:gpio4
+pin 139 (gpio4-11) 11:gpio4
+pin 140 (gpio4-12) 12:gpio4
+pin 141 (gpio4-13) 13:gpio4
+pin 142 (gpio4-14) 14:gpio4
+pin 143 (gpio4-15) 15:gpio4
+pin 144 (gpio4-16) 16:gpio4
+pin 145 (gpio4-17) 17:gpio4
+pin 146 (gpio4-18) 18:gpio4
+pin 147 (gpio4-19) 19:gpio4
+pin 148 (gpio4-20) 20:gpio4
+pin 149 (gpio4-21) 21:gpio4
+pin 150 (gpio4-22) 22:gpio4
+pin 151 (gpio4-23) 23:gpio4
+pin 152 (gpio4-24) 24:gpio4
+pin 153 (gpio4-25) 25:gpio4
+pin 154 (gpio4-26) 26:gpio4
+pin 155 (gpio4-27) 27:gpio4
+pin 156 (gpio4-28) 28:gpio4
+pin 157 (gpio4-29) 29:gpio4
+pin 158 (gpio4-30) 30:gpio4
+pin 159 (gpio4-31) 31:gpio4
+root@linaro-alip:/home/poplt# cat /sys/kernel/debug/pinctrl/*/pinmux-pins
+Pinmux settings per pin
+Format: pin (name): mux_owner gpio_owner hog?
+pin 0 (gpio0-0): wireless-wlan (GPIO UNCLAIMED) function wireless-wlan group wifi-gpio
+pin 1 (gpio0-1): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 2 (gpio0-2): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 3 (gpio0-3): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 4 (gpio0-4): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 5 (gpio0-5): feb20000.spi (GPIO UNCLAIMED) function spi2 group spi2m2-pins
+pin 6 (gpio0-6): feb20000.spi (GPIO UNCLAIMED) function spi2 group spi2m2-pins
+pin 7 (gpio0-7): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 8 (gpio0-8): 6-0051 (GPIO UNCLAIMED) function hym8563 group hym8563-int
+pin 9 (gpio0-9): feb20000.spi (GPIO UNCLAIMED) function spi2 group spi2m2-cs0
+pin 10 (gpio0-10): vcc5v0-radar gpio0:10 function vcc5v0_radar group vcc5v0-radar-en
+pin 11 (gpio0-11): feb20000.spi (GPIO UNCLAIMED) function spi2 group spi2m2-pins
+pin 12 (gpio0-12): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 13 (gpio0-13): fiq-debugger (GPIO UNCLAIMED) function uart2 group uart2m0-xfer
+pin 14 (gpio0-14): fiq-debugger (GPIO UNCLAIMED) function uart2 group uart2m0-xfer
+pin 15 (gpio0-15): feaa0000.i2c (GPIO UNCLAIMED) function i2c2 group i2c2m0-xfer
+pin 16 (gpio0-16): feaa0000.i2c (GPIO UNCLAIMED) function i2c2 group i2c2m0-xfer
+pin 17 (gpio0-17): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 18 (gpio0-18): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 19 (gpio0-19): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 20 (gpio0-20): feac0000.i2c (GPIO UNCLAIMED) function i2c4 group i2c4m2-xfer
+pin 21 (gpio0-21): feac0000.i2c (GPIO UNCLAIMED) function i2c4 group i2c4m2-xfer
+pin 22 (gpio0-22): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 23 (gpio0-23): sdio-pwrseq gpio0:23 function sdmmc group sdmmc-pwren
+pin 24 (gpio0-24): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 25 (gpio0-25): fd880000.i2c (GPIO UNCLAIMED) function i2c0 group i2c0m2-xfer
+pin 26 (gpio0-26): fd880000.i2c (GPIO UNCLAIMED) function i2c0 group i2c0m2-xfer
+pin 27 (gpio0-27): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 28 (gpio0-28): wireless-bluetooth gpio0:28 function wireless-bluetooth group bt-gpio
+pin 29 (gpio0-29): wireless-bluetooth gpio0:29 function wireless-bluetooth group bt-gpio
+pin 30 (gpio0-30): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 31 (gpio0-31): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 32 (gpio1-0): i2c-gpio gpio1:32 function i2c_gpio group i2c-gpio-pins
+pin 33 (gpio1-1): i2c-gpio gpio1:33 function i2c_gpio group i2c-gpio-pins
+pin 34 (gpio1-2): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 35 (gpio1-3): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 36 (gpio1-4): vbus5v0-typec gpio1:36 function usb-typec group typec5v-pwren
+pin 37 (gpio1-5): fde80000.hdmi (GPIO UNCLAIMED) function hdmi group hdmim0-tx0-hpd
+pin 38 (gpio1-6): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 39 (gpio1-7): (MUX UNCLAIMED) gpio1:39
+pin 40 (gpio1-8): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 41 (gpio1-9): feb00000.spi (GPIO UNCLAIMED) function spi0 group spi0m2-pins
+pin 42 (gpio1-10): feb00000.spi (GPIO UNCLAIMED) function spi0 group spi0m2-pins
+pin 43 (gpio1-11): feb00000.spi (GPIO UNCLAIMED) function spi0 group spi0m2-pins
+pin 44 (gpio1-12): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 45 (gpio1-13): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 46 (gpio1-14): fead0000.i2c (GPIO UNCLAIMED) function i2c5 group i2c5m3-xfer
+pin 47 (gpio1-15): fead0000.i2c (GPIO UNCLAIMED) function i2c5 group i2c5m3-xfer
+pin 48 (gpio1-16): feb60000.serial (GPIO UNCLAIMED) function uart3 group uart3m0-xfer
+pin 49 (gpio1-17): feb60000.serial (GPIO UNCLAIMED) function uart3 group uart3m0-xfer
+pin 50 (gpio1-18): 6-0009 (GPIO UNCLAIMED) function i2s0 group i2s0-mclk
+pin 51 (gpio1-19): fe470000.i2s (GPIO UNCLAIMED) function i2s0 group i2s0-idle
+pin 52 (gpio1-20): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 53 (gpio1-21): fe470000.i2s (GPIO UNCLAIMED) function i2s0 group i2s0-idle
+pin 54 (gpio1-22): (MUX UNCLAIMED) gpio1:54
+pin 55 (gpio1-23): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 56 (gpio1-24): feb90000.serial (GPIO UNCLAIMED) function uart6 group uart6m2-xfer
+pin 57 (gpio1-25): feb90000.serial (GPIO UNCLAIMED) function uart6 group uart6m2-xfer
+pin 58 (gpio1-26): feb70000.serial (GPIO UNCLAIMED) function uart4 group uart4m0-xfer
+pin 59 (gpio1-27): feb70000.serial (GPIO UNCLAIMED) function uart4 group uart4m0-xfer
+pin 60 (gpio1-28): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 61 (gpio1-29): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 62 (gpio1-30): feca0000.i2c (GPIO UNCLAIMED) function i2c8 group i2c8m2-xfer
+pin 63 (gpio1-31): feca0000.i2c (GPIO UNCLAIMED) function i2c8 group i2c8m2-xfer
+pin 64 (gpio2-0): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 65 (gpio2-1): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 66 (gpio2-2): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 67 (gpio2-3): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 68 (gpio2-4): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 69 (gpio2-5): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 70 (gpio2-6): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 71 (gpio2-7): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 72 (gpio2-8): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 73 (gpio2-9): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 74 (gpio2-10): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 75 (gpio2-11): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 76 (gpio2-12): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 77 (gpio2-13): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 78 (gpio2-14): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 79 (gpio2-15): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 80 (gpio2-16): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 81 (gpio2-17): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 82 (gpio2-18): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 83 (gpio2-19): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 84 (gpio2-20): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 85 (gpio2-21): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 86 (gpio2-22): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 87 (gpio2-23): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 88 (gpio2-24): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 89 (gpio2-25): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 90 (gpio2-26): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 91 (gpio2-27): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 92 (gpio2-28): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 93 (gpio2-29): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 94 (gpio2-30): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 95 (gpio2-31): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 96 (gpio3-0): febe0020.pwm (GPIO UNCLAIMED) function pwm10 group pwm10m0-pins
+pin 97 (gpio3-1): (MUX UNCLAIMED) gpio3:97
+pin 98 (gpio3-2): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 99 (gpio3-3): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 100 (gpio3-4): vdd-4v6-a gpio3:100 function vdd4v6pwr group vdd-4v6-pwren
+pin 101 (gpio3-5): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 102 (gpio3-6): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 103 (gpio3-7): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 104 (gpio3-8): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 105 (gpio3-9): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 106 (gpio3-10): fd8b0030.pwm (GPIO UNCLAIMED) function pwm3 group pwm3m1-pins
+pin 107 (gpio3-11): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 108 (gpio3-12): vcc-5v0-s gpio3:108 function vcc5vpwr group vcc-5v0-s-pwren
+pin 109 (gpio3-13): fea60000.can (GPIO UNCLAIMED) function can1 group can1m0-pins
+pin 110 (gpio3-14): fea60000.can (GPIO UNCLAIMED) function can1 group can1m0-pins
+pin 111 (gpio3-15): wireless-bluetooth gpio3:111 function wireless-bluetooth group bt-gpio
+pin 112 (gpio3-16): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 113 (gpio3-17): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 114 (gpio3-18): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 115 (gpio3-19): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 116 (gpio3-20): feb80000.serial (GPIO UNCLAIMED) function uart5 group uart5m1-xfer
+pin 117 (gpio3-21): feb80000.serial (GPIO UNCLAIMED) function uart5 group uart5m1-xfer
+pin 118 (gpio3-22): led-controller gpio3:118 function led group led-status
+pin 119 (gpio3-23): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 120 (gpio3-24): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 121 (gpio3-25): fe190000.pcie gpio3:121 function pcie2x1l2 group pcie-reset
+pin 122 (gpio3-26): wireless-bluetooth gpio3:122 function uart9 group uart9m2-rtsn
+pin 123 (gpio3-27): febc0000.serial (GPIO UNCLAIMED) function uart9 group uart9m2-ctsn
+pin 124 (gpio3-28): febc0000.serial (GPIO UNCLAIMED) function uart9 group uart9m2-xfer
+pin 125 (gpio3-29): febc0000.serial (GPIO UNCLAIMED) function uart9 group uart9m2-xfer
+pin 126 (gpio3-30): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 127 (gpio3-31): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 128 (gpio4-0): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 129 (gpio4-1): speaker-amp gpio4:129 function amplifier group amplifier-pwren
+pin 130 (gpio4-2): 8-005b (GPIO UNCLAIMED) function aw9110_1 group aw9110-1-int
+pin 131 (gpio4-3): fd890000.serial (GPIO UNCLAIMED) function uart0 group uart0m2-xfer
+pin 132 (gpio4-4): fd890000.serial (GPIO UNCLAIMED) function uart0 group uart0m2-xfer
+pin 133 (gpio4-5): 6-004e (GPIO UNCLAIMED) function usb-typec group usbc0-int
+pin 134 (gpio4-6): 8-0058 (GPIO UNCLAIMED) function aw9110_0 group aw9110-0-int
+pin 135 (gpio4-7): feb00000.spi gpio4:135 function spi0 group spi0m2-cs0
+pin 136 (gpio4-8): fec80000.i2c (GPIO UNCLAIMED) function i2c6 group i2c6m3-xfer
+pin 137 (gpio4-9): fec80000.i2c (GPIO UNCLAIMED) function i2c6 group i2c6m3-xfer
+pin 138 (gpio4-10): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 139 (gpio4-11): vcc5v0-host gpio4:139 function usb group vcc5v0-host-en
+pin 140 (gpio4-12): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 141 (gpio4-13): (MUX UNCLAIMED) gpio4:141
+pin 142 (gpio4-14): (MUX UNCLAIMED) gpio4:142
+pin 143 (gpio4-15): fde80000.hdmi (GPIO UNCLAIMED) function hdmi group hdmim0-tx0-scl
+pin 144 (gpio4-16): fde80000.hdmi (GPIO UNCLAIMED) function hdmi group hdmim0-tx0-sda
+pin 145 (gpio4-17): fde80000.hdmi (GPIO UNCLAIMED) function hdmi group hdmim0-tx0-cec
+pin 146 (gpio4-18): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 147 (gpio4-19): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 148 (gpio4-20): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 149 (gpio4-21): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 150 (gpio4-22): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 151 (gpio4-23): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 152 (gpio4-24): fe2c0000.mmc (GPIO UNCLAIMED) function sdmmc group sdmmc-bus4
+pin 153 (gpio4-25): fe2c0000.mmc (GPIO UNCLAIMED) function sdmmc group sdmmc-bus4
+pin 154 (gpio4-26): fe2c0000.mmc (GPIO UNCLAIMED) function sdmmc group sdmmc-bus4
+pin 155 (gpio4-27): fe2c0000.mmc (GPIO UNCLAIMED) function sdmmc group sdmmc-bus4
+pin 156 (gpio4-28): fe2c0000.mmc (GPIO UNCLAIMED) function sdmmc group sdmmc-cmd
+pin 157 (gpio4-29): fe2c0000.mmc (GPIO UNCLAIMED) function sdmmc group sdmmc-clk
+pin 158 (gpio4-30): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 159 (gpio4-31): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+Pinmux settings per pin
+Format: pin (name): mux_owner gpio_owner hog?
+pin 0 (gpio_pwrctrl1): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 1 (gpio_pwrctrl2): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 2 (gpio_pwrctrl3): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+root@linaro-alip:/home/poplt#
+root@linaro-alip:/home/poplt#
+root@linaro-alip:/home/poplt#
+root@linaro-alip:/home/poplt#
+root@linaro-alip:/home/poplt#
+root@linaro-alip:/home/poplt#
+root@linaro-alip:/home/poplt#
+root@linaro-alip:/home/poplt#
+root@linaro-alip:/home/poplt#
+root@linaro-alip:/home/poplt# ls /dev
+block            gpiochip4    log           mmcblk0       random    tty11  tty28  tty44  tty60    ubi_ctrl     v4l-subdev5  vcsa5           video13  video3   video46  video7
+bus              gpiochip5    loop0         mmcblk0boot0  rfkill    tty12  tty29  tty45  tty61    uhid         v4l-subdev6  vcsa6           video14  video30  video47  video8
+char             gpiochip6    loop1         mmcblk0boot1  rga       tty13  tty3   tty46  tty62    uinput       v4l-subdev7  vcsa7           video15  video31  video48  video9
+console          gpiochip7    loop2         mmcblk0p1     rtc       tty14  tty30  tty47  tty63    urandom      v4l-subdev8  vcsu            video16  video32  video49  video-camera0
+cpu_dma_latency  hwrng        loop3         mmcblk0p2     rtc0      tty15  tty31  tty48  tty7     usb-ffs      v4l-subdev9  vcsu1           video17  video33  video5   video-dec0
+crypto           i2c-0        loop4         mmcblk0p3     serial    tty16  tty32  tty49  tty8     usbmon0      vcs          vcsu2           video18  video34  video50  video-enc0
+disk             i2c-10       loop5         mmcblk0p4     shm       tty17  tty33  tty5   tty9     usbmon1      vcs1         vcsu3           video19  video35  video51  zero
+dma_heap         i2c-11       loop6         mmcblk0p5     snd       tty18  tty34  tty50  ttyFIQ0  usbmon2      vcs2         vcsu4           video2   video36  video52  zram0
+dri              i2c-2        loop7         mmcblk0p6     stderr    tty19  tty35  tty51  ttyS0    usbmon3      vcs3         vcsu5           video20  video37  video53
+drm_dp_aux0      i2c-4        loop-control  mmcblk0p7     stdin     tty2   tty36  tty52  ttyS3    usbmon4      vcs4         vcsu6           video21  video38  video54
+fb0              i2c-5        mali0         mmcblk0p8     stdout    tty20  tty37  tty53  ttyS4    usbmon5      vcs5         vcsu7           video22  video39  video55
+fd               i2c-6        media0        mmcblk0rpmb   sw_sync   tty21  tty38  tty54  ttyS5    usbmon6      vcs6         vendor_storage  video23  video4   video56
+full             i2c-8        media1        mpp_service   tee0      tty22  tty39  tty55  ttyS6    v4l          vcs7         vhci            video24  video40  video57
+fuse             i2c-9        media2        null          teepriv0  tty23  tty4   tty56  ttyS9    v4l-subdev0  vcsa         video0          video25  video41  video58
+gpiochip0        iio:device0  media3        port          tty       tty24  tty40  tty57  ttyUSB0  v4l-subdev1  vcsa1        video1          video26  video42  video59
+gpiochip1        initctl      media4        ptmx          tty0      tty25  tty41  tty58  ttyUSB1  v4l-subdev2  vcsa2        video10         video27  video43  video6
+gpiochip2        input        media5        pts           tty1      tty26  tty42  tty59  ttyUSB2  v4l-subdev3  vcsa3        video11         video28  video44  video60
+gpiochip3        kmsg         mem           ram0          tty10     tty27  tty43  tty6   ttyUSB3  v4l-subdev4  vcsa4        video12         video29  video45  video61
+root@linaro-alip:/home/poplt# cat /proc/cmdline | grep console
+storagemedia=emmc androidboot.storagemedia=emmc androidboot.mode=normal  androidboot.verifiedbootstate=orange rw rootwait earlycon=uart8250,mmio32,0xfeb50000 console=ttyFIQ0 irqchip.gicv3_pseudo_nmi=0 root=PARTUUID=614e0000-0000
+root@linaro-alip:/home/poplt# cat /sys/class/i2c-adapter/i2c-0/name
+rk3x-i2c
+root@linaro-alip:/home/poplt# ls -l /sys/class/i2c-adapter/
+总用量 0
+lrwxrwxrwx 1 root root 0  5月 27 13:02 i2c-0 -> ../../devices/platform/fd880000.i2c/i2c-0
+lrwxrwxrwx 1 root root 0  5月 27 13:02 i2c-10 -> ../../devices/platform/fde50000.dp/i2c-10
+lrwxrwxrwx 1 root root 0  5月 27 13:02 i2c-11 -> ../../devices/platform/fde80000.hdmi/i2c-11
+lrwxrwxrwx 1 root root 0  5月 27 13:02 i2c-2 -> ../../devices/platform/feaa0000.i2c/i2c-2
+lrwxrwxrwx 1 root root 0  5月 27 13:02 i2c-4 -> ../../devices/platform/feac0000.i2c/i2c-4
+lrwxrwxrwx 1 root root 0  5月 27 13:02 i2c-5 -> ../../devices/platform/fead0000.i2c/i2c-5
+lrwxrwxrwx 1 root root 0  5月 27 13:02 i2c-6 -> ../../devices/platform/fec80000.i2c/i2c-6
+lrwxrwxrwx 1 root root 0  5月 27 13:02 i2c-8 -> ../../devices/platform/feca0000.i2c/i2c-8
+lrwxrwxrwx 1 root root 0  5月 27 13:02 i2c-9 -> ../../devices/platform/i2c-gpio/i2c-9
+root@linaro-alip:/home/poplt# ^C
+root@linaro-alip:/home/poplt# ls -l /sys/class/tty/
+总用量 0
+lrwxrwxrwx 1 root root 0  5月 27 13:02 console -> ../../devices/virtual/tty/console
+lrwxrwxrwx 1 root root 0  5月 27 13:02 ptmx -> ../../devices/virtual/tty/ptmx
+lrwxrwxrwx 1 root root 0  5月 27 13:02 tty -> ../../devices/virtual/tty/tty
+lrwxrwxrwx 1 root root 0  5月 27 13:02 tty0 -> ../../devices/virtual/tty/tty0
+lrwxrwxrwx 1 root root 0  5月 27 13:02 tty1 -> ../../devices/virtual/tty/tty1
+lrwxrwxrwx 1 root root 0  5月 27 13:02 tty10 -> ../../devices/virtual/tty/tty10
+lrwxrwxrwx 1 root root 0  5月 27 13:02 tty11 -> ../../devices/virtual/tty/tty11
+lrwxrwxrwx 1 root root 0  5月 27 13:02 tty12 -> ../../devices/virtual/tty/tty12
+lrwxrwxrwx 1 root root 0  5月 27 13:02 tty13 -> ../../devices/virtual/tty/tty13
+lrwxrwxrwx 1 root root 0  5月 27 13:02 tty14 -> ../../devices/virtual/tty/tty14
+lrwxrwxrwx 1 root root 0  5月 27 13:02 tty15 -> ../../devices/virtual/tty/tty15
+lrwxrwxrwx 1 root root 0  5月 27 13:02 tty16 -> ../../devices/virtual/tty/tty16
+lrwxrwxrwx 1 root root 0  5月 27 13:02 tty17 -> ../../devices/virtual/tty/tty17
+lrwxrwxrwx 1 root root 0  5月 27 13:02 tty18 -> ../../devices/virtual/tty/tty18
+lrwxrwxrwx 1 root root 0  5月 27 13:02 tty19 -> ../../devices/virtual/tty/tty19
+lrwxrwxrwx 1 root root 0  5月 27 13:02 tty2 -> ../../devices/virtual/tty/tty2
+lrwxrwxrwx 1 root root 0  5月 27 13:02 tty20 -> ../../devices/virtual/tty/tty20
+lrwxrwxrwx 1 root root 0  5月 27 13:02 tty21 -> ../../devices/virtual/tty/tty21
+lrwxrwxrwx 1 root root 0  5月 27 13:02 tty22 -> ../../devices/virtual/tty/tty22
+lrwxrwxrwx 1 root root 0  5月 27 13:02 tty23 -> ../../devices/virtual/tty/tty23
+lrwxrwxrwx 1 root root 0  5月 27 13:02 tty24 -> ../../devices/virtual/tty/tty24
+lrwxrwxrwx 1 root root 0  5月 27 13:02 tty25 -> ../../devices/virtual/tty/tty25
+lrwxrwxrwx 1 root root 0  5月 27 13:02 tty26 -> ../../devices/virtual/tty/tty26
+lrwxrwxrwx 1 root root 0  5月 27 13:02 tty27 -> ../../devices/virtual/tty/tty27
+lrwxrwxrwx 1 root root 0  5月 27 13:02 tty28 -> ../../devices/virtual/tty/tty28
+lrwxrwxrwx 1 root root 0  5月 27 13:02 tty29 -> ../../devices/virtual/tty/tty29
+lrwxrwxrwx 1 root root 0  5月 27 13:02 tty3 -> ../../devices/virtual/tty/tty3
+lrwxrwxrwx 1 root root 0  5月 27 13:02 tty30 -> ../../devices/virtual/tty/tty30
+lrwxrwxrwx 1 root root 0  5月 27 13:02 tty31 -> ../../devices/virtual/tty/tty31
+lrwxrwxrwx 1 root root 0  5月 27 13:02 tty32 -> ../../devices/virtual/tty/tty32
+lrwxrwxrwx 1 root root 0  5月 27 13:02 tty33 -> ../../devices/virtual/tty/tty33
+lrwxrwxrwx 1 root root 0  5月 27 13:02 tty34 -> ../../devices/virtual/tty/tty34
+lrwxrwxrwx 1 root root 0  5月 27 13:02 tty35 -> ../../devices/virtual/tty/tty35
+lrwxrwxrwx 1 root root 0  5月 27 13:02 tty36 -> ../../devices/virtual/tty/tty36
+lrwxrwxrwx 1 root root 0  5月 27 13:02 tty37 -> ../../devices/virtual/tty/tty37
+lrwxrwxrwx 1 root root 0  5月 27 13:02 tty38 -> ../../devices/virtual/tty/tty38
+lrwxrwxrwx 1 root root 0  5月 27 13:02 tty39 -> ../../devices/virtual/tty/tty39
+lrwxrwxrwx 1 root root 0  5月 27 13:02 tty4 -> ../../devices/virtual/tty/tty4
+lrwxrwxrwx 1 root root 0  5月 27 13:02 tty40 -> ../../devices/virtual/tty/tty40
+lrwxrwxrwx 1 root root 0  5月 27 13:02 tty41 -> ../../devices/virtual/tty/tty41
+lrwxrwxrwx 1 root root 0  5月 27 13:02 tty42 -> ../../devices/virtual/tty/tty42
+lrwxrwxrwx 1 root root 0  5月 27 13:02 tty43 -> ../../devices/virtual/tty/tty43
+lrwxrwxrwx 1 root root 0  5月 27 13:02 tty44 -> ../../devices/virtual/tty/tty44
+lrwxrwxrwx 1 root root 0  5月 27 13:02 tty45 -> ../../devices/virtual/tty/tty45
+lrwxrwxrwx 1 root root 0  5月 27 13:02 tty46 -> ../../devices/virtual/tty/tty46
+lrwxrwxrwx 1 root root 0  5月 27 13:02 tty47 -> ../../devices/virtual/tty/tty47
+lrwxrwxrwx 1 root root 0  5月 27 13:02 tty48 -> ../../devices/virtual/tty/tty48
+lrwxrwxrwx 1 root root 0  5月 27 13:02 tty49 -> ../../devices/virtual/tty/tty49
+lrwxrwxrwx 1 root root 0  5月 27 13:02 tty5 -> ../../devices/virtual/tty/tty5
+lrwxrwxrwx 1 root root 0  5月 27 13:02 tty50 -> ../../devices/virtual/tty/tty50
+lrwxrwxrwx 1 root root 0  5月 27 13:02 tty51 -> ../../devices/virtual/tty/tty51
+lrwxrwxrwx 1 root root 0  5月 27 13:02 tty52 -> ../../devices/virtual/tty/tty52
+lrwxrwxrwx 1 root root 0  5月 27 13:02 tty53 -> ../../devices/virtual/tty/tty53
+lrwxrwxrwx 1 root root 0  5月 27 13:02 tty54 -> ../../devices/virtual/tty/tty54
+lrwxrwxrwx 1 root root 0  5月 27 13:02 tty55 -> ../../devices/virtual/tty/tty55
+lrwxrwxrwx 1 root root 0  5月 27 13:02 tty56 -> ../../devices/virtual/tty/tty56
+lrwxrwxrwx 1 root root 0  5月 27 13:02 tty57 -> ../../devices/virtual/tty/tty57
+lrwxrwxrwx 1 root root 0  5月 27 13:02 tty58 -> ../../devices/virtual/tty/tty58
+lrwxrwxrwx 1 root root 0  5月 27 13:02 tty59 -> ../../devices/virtual/tty/tty59
+lrwxrwxrwx 1 root root 0  5月 27 13:02 tty6 -> ../../devices/virtual/tty/tty6
+lrwxrwxrwx 1 root root 0  5月 27 13:02 tty60 -> ../../devices/virtual/tty/tty60
+lrwxrwxrwx 1 root root 0  5月 27 13:02 tty61 -> ../../devices/virtual/tty/tty61
+lrwxrwxrwx 1 root root 0  5月 27 13:02 tty62 -> ../../devices/virtual/tty/tty62
+lrwxrwxrwx 1 root root 0  5月 27 13:02 tty63 -> ../../devices/virtual/tty/tty63
+lrwxrwxrwx 1 root root 0  5月 27 13:02 tty7 -> ../../devices/virtual/tty/tty7
+lrwxrwxrwx 1 root root 0  5月 27 13:02 tty8 -> ../../devices/virtual/tty/tty8
+lrwxrwxrwx 1 root root 0  5月 27 13:02 tty9 -> ../../devices/virtual/tty/tty9
+lrwxrwxrwx 1 root root 0  5月 27 13:02 ttyFIQ0 -> ../../devices/platform/fiq_debugger.0/tty/ttyFIQ0
+lrwxrwxrwx 1 root root 0  5月 27 13:02 ttyS0 -> ../../devices/platform/fd890000.serial/tty/ttyS0
+lrwxrwxrwx 1 root root 0  5月 27 13:02 ttyS3 -> ../../devices/platform/feb60000.serial/tty/ttyS3
+lrwxrwxrwx 1 root root 0  5月 27 13:02 ttyS4 -> ../../devices/platform/feb70000.serial/tty/ttyS4
+lrwxrwxrwx 1 root root 0  5月 27 13:02 ttyS5 -> ../../devices/platform/feb80000.serial/tty/ttyS5
+lrwxrwxrwx 1 root root 0  5月 27 13:02 ttyS6 -> ../../devices/platform/feb90000.serial/tty/ttyS6
+lrwxrwxrwx 1 root root 0  5月 27 13:02 ttyS9 -> ../../devices/platform/febc0000.serial/tty/ttyS9
+lrwxrwxrwx 1 root root 0  5月 27 13:36 ttyUSB0 -> ../../devices/platform/fc800000.usb/usb6/6-1/6-1:1.0/ttyUSB0/tty/ttyUSB0
+lrwxrwxrwx 1 root root 0  5月 27 13:36 ttyUSB1 -> ../../devices/platform/fc800000.usb/usb6/6-1/6-1:1.1/ttyUSB1/tty/ttyUSB1
+lrwxrwxrwx 1 root root 0  5月 27 13:36 ttyUSB2 -> ../../devices/platform/fc800000.usb/usb6/6-1/6-1:1.2/ttyUSB2/tty/ttyUSB2
+lrwxrwxrwx 1 root root 0  5月 27 13:36 ttyUSB3 -> ../../devices/platform/fc800000.usb/usb6/6-1/6-1:1.3/ttyUSB3/tty/ttyUSB3
+root@linaro-alip:/home/poplt# ls -l /sys/class/spi_master/
+总用量 0
+lrwxrwxrwx 1 root root 0  5月 27 13:02 spi0 -> ../../devices/platform/feb00000.spi/spi_master/spi0
+lrwxrwxrwx 1 root root 0  5月 27 13:02 spi2 -> ../../devices/platform/feb20000.spi/spi_master/spi2
+root@linaro-alip:/home/poplt# ls -l /sys/class/gpio/
+总用量 0
+--w------- 1 root root 4096  5月 27 13:02 export
+lrwxrwxrwx 1 root root    0  5月 27 13:02 gpiochip0 -> ../../devices/platform/pinctrl/fd8a0000.gpio/gpio/gpiochip0
+lrwxrwxrwx 1 root root    0  5月 27 13:02 gpiochip128 -> ../../devices/platform/pinctrl/fec50000.gpio/gpio/gpiochip128
+lrwxrwxrwx 1 root root    0  5月 27 13:02 gpiochip32 -> ../../devices/platform/pinctrl/fec20000.gpio/gpio/gpiochip32
+lrwxrwxrwx 1 root root    0  5月 27 13:02 gpiochip489 -> ../../devices/platform/feca0000.i2c/i2c-8/8-005b/gpio/gpiochip489
+lrwxrwxrwx 1 root root    0  5月 27 13:02 gpiochip499 -> ../../devices/platform/feca0000.i2c/i2c-8/8-0058/gpio/gpiochip499
+lrwxrwxrwx 1 root root    0  5月 27 13:02 gpiochip509 -> ../../devices/platform/feb20000.spi/spi_master/spi2/spi2.0/rk806-pinctrl.1.auto/gpio/gpiochip509
+lrwxrwxrwx 1 root root    0  5月 27 13:02 gpiochip64 -> ../../devices/platform/pinctrl/fec30000.gpio/gpio/gpiochip64
+lrwxrwxrwx 1 root root    0  5月 27 13:02 gpiochip96 -> ../../devices/platform/pinctrl/fec40000.gpio/gpio/gpiochip96
+--w------- 1 root root 4096  5月 27 13:02 unexport
+root@linaro-alip:/home/poplt# ls -l /sys/class/video4linux/
+总用量 0
+lrwxrwxrwx 1 root root 0  5月 27 13:02 v4l-subdev0 -> ../../devices/platform/mipi0-csi2/video4linux/v4l-subdev0
+lrwxrwxrwx 1 root root 0  5月 27 13:02 v4l-subdev1 -> ../../devices/platform/csi2-dcphy0/video4linux/v4l-subdev1
+lrwxrwxrwx 1 root root 0  5月 27 13:02 v4l-subdev2 -> ../../devices/platform/mipi1-csi2/video4linux/v4l-subdev2
+lrwxrwxrwx 1 root root 0  5月 27 13:02 v4l-subdev3 -> ../../devices/platform/csi2-dcphy1/video4linux/v4l-subdev3
+lrwxrwxrwx 1 root root 0  5月 27 13:02 v4l-subdev4 -> ../../devices/platform/mipi2-csi2/video4linux/v4l-subdev4
+lrwxrwxrwx 1 root root 0  5月 27 13:02 v4l-subdev5 -> ../../devices/platform/csi2-dphy0/video4linux/v4l-subdev5
+lrwxrwxrwx 1 root root 0  5月 27 13:02 v4l-subdev6 -> ../../devices/platform/mipi3-csi2/video4linux/v4l-subdev6
+lrwxrwxrwx 1 root root 0  5月 27 13:02 v4l-subdev7 -> ../../devices/platform/csi2-dphy2/video4linux/v4l-subdev7
+lrwxrwxrwx 1 root root 0  5月 27 13:02 v4l-subdev8 -> ../../devices/platform/rkisp0-vir0/video4linux/v4l-subdev8
+lrwxrwxrwx 1 root root 0  5月 27 13:02 v4l-subdev9 -> ../../devices/platform/rkisp1-vir0/video4linux/v4l-subdev9
+lrwxrwxrwx 1 root root 0  5月 27 13:02 video0 -> ../../devices/platform/rkcif-mipi-lvds/video4linux/video0
+lrwxrwxrwx 1 root root 0  5月 27 13:02 video1 -> ../../devices/platform/rkcif-mipi-lvds/video4linux/video1
+lrwxrwxrwx 1 root root 0  5月 27 13:02 video10 -> ../../devices/platform/rkcif-mipi-lvds/video4linux/video10
+lrwxrwxrwx 1 root root 0  5月 27 13:02 video11 -> ../../devices/platform/rkcif-mipi-lvds1/video4linux/video11
+lrwxrwxrwx 1 root root 0  5月 27 13:02 video12 -> ../../devices/platform/rkcif-mipi-lvds1/video4linux/video12
+lrwxrwxrwx 1 root root 0  5月 27 13:02 video13 -> ../../devices/platform/rkcif-mipi-lvds1/video4linux/video13
+lrwxrwxrwx 1 root root 0  5月 27 13:02 video14 -> ../../devices/platform/rkcif-mipi-lvds1/video4linux/video14
+lrwxrwxrwx 1 root root 0  5月 27 13:02 video15 -> ../../devices/platform/rkcif-mipi-lvds1/video4linux/video15
+lrwxrwxrwx 1 root root 0  5月 27 13:02 video16 -> ../../devices/platform/rkcif-mipi-lvds1/video4linux/video16
+lrwxrwxrwx 1 root root 0  5月 27 13:02 video17 -> ../../devices/platform/rkcif-mipi-lvds1/video4linux/video17
+lrwxrwxrwx 1 root root 0  5月 27 13:02 video18 -> ../../devices/platform/rkcif-mipi-lvds1/video4linux/video18
+lrwxrwxrwx 1 root root 0  5月 27 13:02 video19 -> ../../devices/platform/rkcif-mipi-lvds1/video4linux/video19
+lrwxrwxrwx 1 root root 0  5月 27 13:02 video2 -> ../../devices/platform/rkcif-mipi-lvds/video4linux/video2
+lrwxrwxrwx 1 root root 0  5月 27 13:02 video20 -> ../../devices/platform/rkcif-mipi-lvds1/video4linux/video20
+lrwxrwxrwx 1 root root 0  5月 27 13:02 video21 -> ../../devices/platform/rkcif-mipi-lvds1/video4linux/video21
+lrwxrwxrwx 1 root root 0  5月 27 13:02 video22 -> ../../devices/platform/rkcif-mipi-lvds2/video4linux/video22
+lrwxrwxrwx 1 root root 0  5月 27 13:02 video23 -> ../../devices/platform/rkcif-mipi-lvds2/video4linux/video23
+lrwxrwxrwx 1 root root 0  5月 27 13:02 video24 -> ../../devices/platform/rkcif-mipi-lvds2/video4linux/video24
+lrwxrwxrwx 1 root root 0  5月 27 13:02 video25 -> ../../devices/platform/rkcif-mipi-lvds2/video4linux/video25
+lrwxrwxrwx 1 root root 0  5月 27 13:02 video26 -> ../../devices/platform/rkcif-mipi-lvds2/video4linux/video26
+lrwxrwxrwx 1 root root 0  5月 27 13:02 video27 -> ../../devices/platform/rkcif-mipi-lvds2/video4linux/video27
+lrwxrwxrwx 1 root root 0  5月 27 13:02 video28 -> ../../devices/platform/rkcif-mipi-lvds2/video4linux/video28
+lrwxrwxrwx 1 root root 0  5月 27 13:02 video29 -> ../../devices/platform/rkcif-mipi-lvds2/video4linux/video29
+lrwxrwxrwx 1 root root 0  5月 27 13:02 video3 -> ../../devices/platform/rkcif-mipi-lvds/video4linux/video3
+lrwxrwxrwx 1 root root 0  5月 27 13:02 video30 -> ../../devices/platform/rkcif-mipi-lvds2/video4linux/video30
+lrwxrwxrwx 1 root root 0  5月 27 13:02 video31 -> ../../devices/platform/rkcif-mipi-lvds2/video4linux/video31
+lrwxrwxrwx 1 root root 0  5月 27 13:02 video32 -> ../../devices/platform/rkcif-mipi-lvds2/video4linux/video32
+lrwxrwxrwx 1 root root 0  5月 27 13:02 video33 -> ../../devices/platform/rkcif-mipi-lvds3/video4linux/video33
+lrwxrwxrwx 1 root root 0  5月 27 13:02 video34 -> ../../devices/platform/rkcif-mipi-lvds3/video4linux/video34
+lrwxrwxrwx 1 root root 0  5月 27 13:02 video35 -> ../../devices/platform/rkcif-mipi-lvds3/video4linux/video35
+lrwxrwxrwx 1 root root 0  5月 27 13:02 video36 -> ../../devices/platform/rkcif-mipi-lvds3/video4linux/video36
+lrwxrwxrwx 1 root root 0  5月 27 13:02 video37 -> ../../devices/platform/rkcif-mipi-lvds3/video4linux/video37
+lrwxrwxrwx 1 root root 0  5月 27 13:02 video38 -> ../../devices/platform/rkcif-mipi-lvds3/video4linux/video38
+lrwxrwxrwx 1 root root 0  5月 27 13:02 video39 -> ../../devices/platform/rkcif-mipi-lvds3/video4linux/video39
+lrwxrwxrwx 1 root root 0  5月 27 13:02 video4 -> ../../devices/platform/rkcif-mipi-lvds/video4linux/video4
+lrwxrwxrwx 1 root root 0  5月 27 13:02 video40 -> ../../devices/platform/rkcif-mipi-lvds3/video4linux/video40
+lrwxrwxrwx 1 root root 0  5月 27 13:02 video41 -> ../../devices/platform/rkcif-mipi-lvds3/video4linux/video41
+lrwxrwxrwx 1 root root 0  5月 27 13:02 video42 -> ../../devices/platform/rkcif-mipi-lvds3/video4linux/video42
+lrwxrwxrwx 1 root root 0  5月 27 13:02 video43 -> ../../devices/platform/rkcif-mipi-lvds3/video4linux/video43
+lrwxrwxrwx 1 root root 0  5月 27 13:02 video44 -> ../../devices/platform/rkisp0-vir0/video4linux/video44
+lrwxrwxrwx 1 root root 0  5月 27 13:02 video45 -> ../../devices/platform/rkisp0-vir0/video4linux/video45
+lrwxrwxrwx 1 root root 0  5月 27 13:02 video46 -> ../../devices/platform/rkisp0-vir0/video4linux/video46
+lrwxrwxrwx 1 root root 0  5月 27 13:02 video47 -> ../../devices/platform/rkisp0-vir0/video4linux/video47
+lrwxrwxrwx 1 root root 0  5月 27 13:02 video48 -> ../../devices/platform/rkisp0-vir0/video4linux/video48
+lrwxrwxrwx 1 root root 0  5月 27 13:02 video49 -> ../../devices/platform/rkisp0-vir0/video4linux/video49
+lrwxrwxrwx 1 root root 0  5月 27 13:02 video5 -> ../../devices/platform/rkcif-mipi-lvds/video4linux/video5
+lrwxrwxrwx 1 root root 0  5月 27 13:02 video50 -> ../../devices/platform/rkisp0-vir0/video4linux/video50
+lrwxrwxrwx 1 root root 0  5月 27 13:02 video51 -> ../../devices/platform/rkisp0-vir0/video4linux/video51
+lrwxrwxrwx 1 root root 0  5月 27 13:02 video52 -> ../../devices/platform/rkisp0-vir0/video4linux/video52
+lrwxrwxrwx 1 root root 0  5月 27 13:02 video53 -> ../../devices/platform/rkisp1-vir0/video4linux/video53
+lrwxrwxrwx 1 root root 0  5月 27 13:02 video54 -> ../../devices/platform/rkisp1-vir0/video4linux/video54
+lrwxrwxrwx 1 root root 0  5月 27 13:02 video55 -> ../../devices/platform/rkisp1-vir0/video4linux/video55
+lrwxrwxrwx 1 root root 0  5月 27 13:02 video56 -> ../../devices/platform/rkisp1-vir0/video4linux/video56
+lrwxrwxrwx 1 root root 0  5月 27 13:02 video57 -> ../../devices/platform/rkisp1-vir0/video4linux/video57
+lrwxrwxrwx 1 root root 0  5月 27 13:02 video58 -> ../../devices/platform/rkisp1-vir0/video4linux/video58
+lrwxrwxrwx 1 root root 0  5月 27 13:02 video59 -> ../../devices/platform/rkisp1-vir0/video4linux/video59
+lrwxrwxrwx 1 root root 0  5月 27 13:02 video6 -> ../../devices/platform/rkcif-mipi-lvds/video4linux/video6
+lrwxrwxrwx 1 root root 0  5月 27 13:02 video60 -> ../../devices/platform/rkisp1-vir0/video4linux/video60
+lrwxrwxrwx 1 root root 0  5月 27 13:02 video61 -> ../../devices/platform/rkisp1-vir0/video4linux/video61
+lrwxrwxrwx 1 root root 0  5月 27 13:02 video7 -> ../../devices/platform/rkcif-mipi-lvds/video4linux/video7
+lrwxrwxrwx 1 root root 0  5月 27 13:02 video8 -> ../../devices/platform/rkcif-mipi-lvds/video4linux/video8
+lrwxrwxrwx 1 root root 0  5月 27 13:02 video9 -> ../../devices/platform/rkcif-mipi-lvds/video4linux/video9
+root@linaro-alip:/home/poplt#
