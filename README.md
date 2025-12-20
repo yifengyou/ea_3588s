@@ -1,5 +1,16 @@
 # EA_3588S开发板 - 讯飞超脑板
 
+```text
+{
+	compatible = "iflytek,rk3588s-aibox rockchip,rk3588";
+	interrupt-parent = <0x01>;
+	#address-cells = <0x02>;
+	#size-cells = <0x02>;
+	model = "EA3588S";
+...
+}
+```
+
 ![](./images/4702739484700.png)
 
 ![](./images/3336470158100.png)
