@@ -1,0 +1,49 @@
+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
+/*
+ * Copyright (c) 2021 Rockchip Electronics Co., Ltd.
+ *
+ */
+
+/dts-v1/;
+
+#include "rk3588s-cokepi-lite.dtsi"
+#include "rk3588-linux.dtsi"
+
+/ {
+	model = "Rockchip RK3588S CokePi Model LP4 V10 Board";
+	compatible = "rockchip,rk3588s-cpm-hdmi1-v10", "rockchip,rk3588s", "rockchip,rk3588";
+};
+
+&dp0 {
+	status = "okay";
+
+#if 0
+	force-hpd;
+#else
+	pinctrl-names = "default";
+	pinctrl-0 = <&dp0_hpd>;
+	hpd-gpios = <&gpio1 RK_PB0 GPIO_ACTIVE_HIGH>;
+#endif
+};
+
+&dp0_in_vp0 {
+	status = "disabled";
+};
+
+&dp0_in_vp1 {
+	status = "disabled";
+};
+
+&dp0_in_vp2 {
+	status = "okay";
+};
+
+&route_dp0 {
+	//status = "okay";
+	status = "disabled";
+	connect = <&vp2_out_dp0>;
+};
+
+&route_hdmi0 {
+	status = "disabled";
+};
