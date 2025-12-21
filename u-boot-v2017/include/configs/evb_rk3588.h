@@ -21,5 +21,11 @@
 #undef CONFIG_BOOTCOMMAND
 #define CONFIG_BOOTCOMMAND RKIMG_BOOTCOMMAND
 
+#undef CONFIG_BOOTDELAY
+#define CONFIG_BOOTDELAY 5
+
+#undef CONFIG_BOOTCOMMAND
+#define CONFIG_BOOTCOMMAND "sysboot mmc 0:2 any 0x00500000 extlinux.conf"
+
 #endif
 #endif

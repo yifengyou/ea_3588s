@@ -15,7 +15,7 @@ RKBIN_TOOLS=../rkbin/tools
 CROSS_COMPILE_ARM32=~/toolchains/gcc-arm-11.2-2022.02-x86_64-arm-none-linux-gnueabihf/bin/arm-none-linux-gnueabihf-
 # CROSS_COMPILE_ARM64=~/toolchains/gcc-arm-11.2-2022.02-x86_64-aarch64-none-linux-gnu/bin/aarch64-none-linux-gnu-
 
-CROSS_COMPILE_ARM64=aarch64-linux-gnu-
+CROSS_COMPILE_ARM64=/usr/bin/aarch64-linux-gnu-
 echo "using gcc: [${CROSS_COMPILE_ARM64}]"
 
 ########################################### User not touch #############################################
@@ -281,8 +281,7 @@ function select_toolchain()
 			CROSS_COMPILE_ARM64=`cat ${CC_FILE}`
 		else
 			if grep -q '^CONFIG_ARM64=y' .config ; then
-				#CROSS_COMPILE_ARM64=$(cd `dirname ${CROSS_COMPILE_ARM64}`; pwd)"/aarch64-linux-gnu-"
-				CROSS_COMPILE_ARM64=aarch64-linux-gnu-
+				CROSS_COMPILE_ARM64=$(cd `dirname ${CROSS_COMPILE_ARM64}`; pwd)"/aarch64-linux-gnu-"
 			else
 				CROSS_COMPILE_ARM32=$(cd `dirname ${CROSS_COMPILE_ARM32}`; pwd)"/arm-none-linux-gnueabihf-"
 			fi
