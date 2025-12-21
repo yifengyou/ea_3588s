@@ -17,6 +17,8 @@ cp spl/u-boot-spl.bin ../rkbin/bin/rk35/rk3588_spl_v3.bin
 
 cp -a fit/uboot.itb uboot.img
 md5sum uboot.img
+mkdir -p ../rockdev/
+mv uboot.img ../rockdev/
 
 echo "All done! [$?]"
 
