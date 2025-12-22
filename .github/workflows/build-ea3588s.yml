@@ -140,7 +140,7 @@ jobs:
           # BRANCH=legacy  : vendor kernel rockchip 5.10
           ./compile.sh RELEASE=${{ matrix.set_release }} \
                        BOARD=nanopct6 \
-                       BRANCH=current\
+                       BRANCH=current \
                        BUILD_MINIMAL=no \
                        BUILD_ONLY=default \
                        HOST=armbian \

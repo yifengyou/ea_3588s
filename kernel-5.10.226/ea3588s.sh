@@ -22,8 +22,8 @@ find . -name "*.ko" |xargs -i cp {} ../rockdev/modules/
 KVER=`make kernelrelease`
 
 dd if=/dev/zero of=../rockdev/boot.img bs=1M count=60
-mkfs.ext2 -U 7A3F0000-0000-446A-8000-702F00006273 -L kdevboot ../rockdev/boot.img
-mount ../rockdev/boot.img /mnt
+sudo mkfs.ext2 -U 7A3F0000-0000-446A-8000-702F00006273 -L kdevboot ../rockdev/boot.img
+sudo mount ../rockdev/boot.img /mnt
 mkdir -p /mnt/dtb
 
 cp -f ea3588s.dtb /mnt/dtb
@@ -37,7 +37,7 @@ cp -f extlinux.conf /mnt/extlinux/
 cp -f extlinux.conf /mnt/
 find /mnt
 sync
-umount /mnt
+sudo umount /mnt
 
 echo "All done!"
 
