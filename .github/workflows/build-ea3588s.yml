@@ -1,4 +1,4 @@
-name: MatribBuild Image (kver 5.10.110)
+name: MatribBuild Image
 
 on:
   repository_dispatch:
@@ -50,7 +50,7 @@ jobs:
           sudo rm -f /swapfile /mnt/swapfile
           sudo -E apt-get -y update
           sudo -E apt-get -y purge azure-cli ghc* zulu* llvm* firefox google* dotnet* powershell openjdk* mongodb* moby* || true
-          sudo -E apt-get -y install python2 python2-dev python-is-python3 squashfs-tools rar $(curl -fsSL https://tinyurl.com/ubuntu2204-build-armbian)
+          sudo -E apt-get -y install python2 python2-dev python-is-python3 squashfs-tools rar $(curl -fsSL https://tinyurl.com/ubuntu2204-build-armbian) u-boot-tools gcc-aarch64-linux-gnu
           sudo -E systemctl daemon-reload
           #sudo -E apt-get -y full-upgrade
           sudo -E apt-get -y autoremove --purge
@@ -59,7 +59,7 @@ jobs:
           sudo rm -rf ~/{.cargo,.dotnet,.rustup}
           sudo timedatectl set-timezone "${TZ}"
           # init output prefix  ${{ steps.init.outputs.build_tag }}
-          echo "build_tag=Armbian_DC-A588_${{ matrix.set_release }}_5.10.110_${{ matrix.set_desktop }}" >> ${GITHUB_OUTPUT}
+          echo "build_tag=Armbian_ea_3588s_${{ matrix.set_release }}_5.10.110_${{ matrix.set_desktop }}" >> ${GITHUB_OUTPUT}
           echo "status=success" >> ${GITHUB_OUTPUT}
 
       - name: Create simulated physical disk
@@ -86,26 +86,25 @@ jobs:
         if: ${{ steps.init.outputs.status }} == 'success' && !cancelled()
         run: |
           df -hT ${PWD}
-          git clone --recursive --single-branch --branch=master https://github.com/yifengyou/dc-a588.git dc-a588.git
-          ls -alh dc-a588.git
+          git clone --recursive --single-branch --branch=master https://github.com/yifengyou/ea_3588s.git ea_3588s.git
+          ls -alh ea_3588s.git
           echo "status=success" >> ${GITHUB_OUTPUT}
 
-      - name: Compile u-boot-v2017 for DC-A588
+      - name: Compile u-boot-v2017 for ea_3588s
         id: compile_d3588_uboot
-        working-directory: /builder/dc-a588.git/u-boot-v2017
+        working-directory: /builder/ea_3588s.git/u-boot-v2017
         if: ${{ steps.copy_template.outputs.status }} == 'success' && !cancelled()
         run: |
-          ./dc-a588.sh
+          ./ea_3588s.sh
           md5sum ../rockdev/uboot.img
           echo "status=success" >> ${GITHUB_OUTPUT}
 
-      - name: Compile Kernel for DC-A588
+      - name: Compile kernel-5.10.226 for ea_3588s
         id: compile_d3588_kernel
-        working-directory: /builder/dc-a588.git
+        working-directory: /builder/ea_3588s.git/kernel-5.10.226
         if: ${{ steps.compile_d3588_uboot.outputs.status }} == 'success' && !cancelled()
         run: |
-          cd kernel-5.10.110
-          ./dc-a588.sh
+          ./ea_3588s.sh
           md5sum ../rockdev/boot.img
           echo "status=success" >> ${GITHUB_OUTPUT}
 
@@ -156,11 +155,11 @@ jobs:
 
       - name: Extract rootfs from Armbian
         id: extract_rootfs
-        working-directory: /builder/dc-a588.git
+        working-directory: /builder/ea_3588s.git
         if: ${{ steps.compile_armbian.outputs.status }} == 'success' && !cancelled()
         run: |
-          chmod +x /builder/dc-a588.git/scripts/extract-rootfs-from-armbian.sh
-          /builder/dc-a588.git/scripts/extract-rootfs-from-armbian.sh /builder/armbian.git/output/images/
+          chmod +x /builder/ea_3588s.git/scripts/extract-rootfs-from-armbian.sh
+          /builder/ea_3588s.git/scripts/extract-rootfs-from-armbian.sh /builder/armbian.git/output/images/
           ls -alh /builder/armbian.git/output/images/rootfs.img
           echo "status=success" >> ${GITHUB_OUTPUT}
 
@@ -174,104 +173,104 @@ jobs:
           # sudo bash -c 'echo "tmpfs /tmp tmpfs defaults,nosuid 0 0" >> /mnt/etc/fstab'
           sync
           sudo umount /mnt
-          mkdir -p /builder/dc-a588.git/release
-          mv /builder/armbian.git/output/images/rootfs.img /builder/dc-a588.git/ouput-temp/
-          cd /builder/dc-a588.git/ouput-temp/
-          mksquashfs rootfs.img  /builder/dc-a588.git/release/${{ steps.init.outputs.build_tag }}_rootfs.img.squashfs
-          sha256sum /builder/dc-a588.git/release/${{ steps.init.outputs.build_tag }}_rootfs.img.squashfs > \
-                      /builder/dc-a588.git/release/${{ steps.init.outputs.build_tag }}_rootfs.img.squashfs.sha256
-          rar a /builder/dc-a588.git/release/${{ steps.init.outputs.build_tag }}_rootfs.img.rar rootfs.img
-          sha256sum /builder/dc-a588.git/release/${{ steps.init.outputs.build_tag }}_rootfs.img.rar > \
-                      /builder/dc-a588.git/release/${{ steps.init.outputs.build_tag }}_rootfs.img.rar.sha256
+          mkdir -p /builder/ea_3588s.git/release
+          mv /builder/armbian.git/output/images/rootfs.img /builder/ea_3588s.git/ouput-temp/
+          cd /builder/ea_3588s.git/ouput-temp/
+          mksquashfs rootfs.img  /builder/ea_3588s.git/release/${{ steps.init.outputs.build_tag }}_rootfs.img.squashfs
+          sha256sum /builder/ea_3588s.git/release/${{ steps.init.outputs.build_tag }}_rootfs.img.squashfs > \
+                      /builder/ea_3588s.git/release/${{ steps.init.outputs.build_tag }}_rootfs.img.squashfs.sha256
+          rar a /builder/ea_3588s.git/release/${{ steps.init.outputs.build_tag }}_rootfs.img.rar rootfs.img
+          sha256sum /builder/ea_3588s.git/release/${{ steps.init.outputs.build_tag }}_rootfs.img.rar > \
+                      /builder/ea_3588s.git/release/${{ steps.init.outputs.build_tag }}_rootfs.img.rar.sha256
           echo "status=success" >> ${GITHUB_OUTPUT}
 
       - name: Generate updatable image
         id: generate_updateable_image
-        working-directory: /builder/dc-a588.git/
+        working-directory: /builder/ea_3588s.git/
         if: ${{ steps.hack_rootfs.outputs.status }} == 'success' && !cancelled()
         run: |
-          # rootfs.img   : /builder/dc-a588.git/ouput-temp/rootfs.img
-          # uboot.img    : /builder/dc-a588.git/ouput-temp/uboot.img
-          # boot.img     : /builder/dc-a588.git/ouput-temp/boot.img
-          # RKDevTool    : /builder/dc-a588.git/tools/RKDevTool
-          # afptool      : /builder/dc-a588.git/tools/afptool
-          # rkImageMaker : /builder/dc-a588.git/tools/rkImageMaker
-          # template     : /builder/dc-a588.git/ouput-temp
+          # rootfs.img   : /builder/ea_3588s.git/ouput-temp/rootfs.img
+          # uboot.img    : /builder/ea_3588s.git/ouput-temp/uboot.img
+          # boot.img     : /builder/ea_3588s.git/ouput-temp/boot.img
+          # RKDevTool    : /builder/ea_3588s.git/tools/RKDevTool
+          # afptool      : /builder/ea_3588s.git/tools/afptool
+          # rkImageMaker : /builder/ea_3588s.git/tools/rkImageMaker
+          # template     : /builder/ea_3588s.git/ouput-temp
 
-          mkdir -p /builder/dc-a588.git/release
-          mkdir -p /builder/dc-a588.git/output-updatable-image
+          mkdir -p /builder/ea_3588s.git/release
+          mkdir -p /builder/ea_3588s.git/output-updatable-image
           # copy RKDevTool
-          cp -a /builder/dc-a588.git/tools/RKDevTool /builder/dc-a588.git/output-updatable-image/
-          mkdir -p /builder/dc-a588.git/output-updatable-image/RKDevTool/rockdev/image/
+          cp -a /builder/ea_3588s.git/tools/RKDevTool /builder/ea_3588s.git/output-updatable-image/
+          mkdir -p /builder/ea_3588s.git/output-updatable-image/RKDevTool/rockdev/image/
           # copy template
-          cp -a  /builder/dc-a588.git/ouput-temp/* \
-            /builder/dc-a588.git/output-updatable-image/RKDevTool/rockdev/image/
+          cp -a  /builder/ea_3588s.git/ouput-temp/* \
+            /builder/ea_3588s.git/output-updatable-image/RKDevTool/rockdev/image/
 
-          chmod +x /builder/dc-a588.git/tools/afptool
-          chmod +x /builder/dc-a588.git/tools/rkImageMaker
-          cd /builder/dc-a588.git/output-updatable-image/RKDevTool/rockdev/image/
-          /builder/dc-a588.git/tools/afptool -pack . temp.img
-          /builder/dc-a588.git/tools/rkImageMaker -RK3588 MiniLoaderAll.bin temp.img update.img -os_type:androidos
+          chmod +x /builder/ea_3588s.git/tools/afptool
+          chmod +x /builder/ea_3588s.git/tools/rkImageMaker
+          cd /builder/ea_3588s.git/output-updatable-image/RKDevTool/rockdev/image/
+          /builder/ea_3588s.git/tools/afptool -pack . temp.img
+          /builder/ea_3588s.git/tools/rkImageMaker -RK3588 MiniLoaderAll.bin temp.img update.img -os_type:androidos
           find . -type f ! -name "update.img" -exec rm -f {} \;
 
           # generate update.img
-          cd /builder/dc-a588.git/output-updatable-image/
-          mksquashfs RKDevTool  /builder/dc-a588.git/release/${{ steps.init.outputs.build_tag }}_update.img.squashfs && \
-          rar a /builder/dc-a588.git/release/${{ steps.init.outputs.build_tag }}_update.img.rar RKDevTool
-          sha256sum /builder/dc-a588.git/release/${{ steps.init.outputs.build_tag }}_update.img.squashfs > \
-            /builder/dc-a588.git/release/${{ steps.init.outputs.build_tag }}_update.img.squashfs.sha256
-          sha256sum /builder/dc-a588.git/release/${{ steps.init.outputs.build_tag }}_update.img.rar > \
-            /builder/dc-a588.git/release/${{ steps.init.outputs.build_tag }}_update.img.rar.sha256
+          cd /builder/ea_3588s.git/output-updatable-image/
+          mksquashfs RKDevTool  /builder/ea_3588s.git/release/${{ steps.init.outputs.build_tag }}_update.img.squashfs && \
+          rar a /builder/ea_3588s.git/release/${{ steps.init.outputs.build_tag }}_update.img.rar RKDevTool
+          sha256sum /builder/ea_3588s.git/release/${{ steps.init.outputs.build_tag }}_update.img.squashfs > \
+            /builder/ea_3588s.git/release/${{ steps.init.outputs.build_tag }}_update.img.squashfs.sha256
+          sha256sum /builder/ea_3588s.git/release/${{ steps.init.outputs.build_tag }}_update.img.rar > \
+            /builder/ea_3588s.git/release/${{ steps.init.outputs.build_tag }}_update.img.rar.sha256
 
       - name: Generate rockdev image
         id: generate_rockdev_image
-        working-directory: /builder/dc-a588.git/
+        working-directory: /builder/ea_3588s.git/
         if: ${{ steps.generate_updateable_image.outputs.status }} == 'success' && !cancelled()
         run: |
-          # rootfs.img   : /builder/dc-a588.git/ouput-temp/rootfs.img
-          # uboot.img    : /builder/dc-a588.git/ouput-temp/uboot.img
-          # boot.img     : /builder/dc-a588.git/ouput-temp/boot.img
-          # RKDevTool    : /builder/dc-a588.git/tools/RKDevTool
-          # afptool      : /builder/dc-a588.git/tools/afptool
-          # rkImageMaker : /builder/dc-a588.git/tools/rkImageMaker
-          # template     : /builder/dc-a588.git/ouput-temp
+          # rootfs.img   : /builder/ea_3588s.git/ouput-temp/rootfs.img
+          # uboot.img    : /builder/ea_3588s.git/ouput-temp/uboot.img
+          # boot.img     : /builder/ea_3588s.git/ouput-temp/boot.img
+          # RKDevTool    : /builder/ea_3588s.git/tools/RKDevTool
+          # afptool      : /builder/ea_3588s.git/tools/afptool
+          # rkImageMaker : /builder/ea_3588s.git/tools/rkImageMaker
+          # template     : /builder/ea_3588s.git/ouput-temp
 
-          mkdir -p /builder/dc-a588.git/release
-          mkdir -p /builder/dc-a588.git/output-rockdev-image
+          mkdir -p /builder/ea_3588s.git/release
+          mkdir -p /builder/ea_3588s.git/output-rockdev-image
           # copy RKDevTool
-          cp -a /builder/dc-a588.git/tools/RKDevTool /builder/dc-a588.git/output-rockdev-image/
-          mkdir -p /builder/dc-a588.git/output-rockdev-image/RKDevTool/rockdev/image/
+          cp -a /builder/ea_3588s.git/tools/RKDevTool /builder/ea_3588s.git/output-rockdev-image/
+          mkdir -p /builder/ea_3588s.git/output-rockdev-image/RKDevTool/rockdev/image/
           # copy template
-          cp -a  /builder/dc-a588.git/ouput-temp/* \
-            /builder/dc-a588.git/output-rockdev-image/RKDevTool/rockdev/image/
+          cp -a  /builder/ea_3588s.git/ouput-temp/* \
+            /builder/ea_3588s.git/output-rockdev-image/RKDevTool/rockdev/image/
 
           # generate rockdev.img
-          cd /builder/dc-a588.git/output-rockdev-image/
-          mksquashfs RKDevTool  /builder/dc-a588.git/release/${{ steps.init.outputs.build_tag }}_rockdev.img.squashfs && \
-          rar a /builder/dc-a588.git/release/${{ steps.init.outputs.build_tag }}_rockdev.img.rar RKDevTool
-          sha256sum /builder/dc-a588.git/release/${{ steps.init.outputs.build_tag }}_rockdev.img.squashfs > \
-            /builder/dc-a588.git/release/${{ steps.init.outputs.build_tag }}_rockdev.img.squashfs.sha256
-          sha256sum /builder/dc-a588.git/release/${{ steps.init.outputs.build_tag }}_rockdev.img.rar > \
-            /builder/dc-a588.git/release/${{ steps.init.outputs.build_tag }}_rockdev.img.rar.sha256
+          cd /builder/ea_3588s.git/output-rockdev-image/
+          mksquashfs RKDevTool  /builder/ea_3588s.git/release/${{ steps.init.outputs.build_tag }}_rockdev.img.squashfs && \
+          rar a /builder/ea_3588s.git/release/${{ steps.init.outputs.build_tag }}_rockdev.img.rar RKDevTool
+          sha256sum /builder/ea_3588s.git/release/${{ steps.init.outputs.build_tag }}_rockdev.img.squashfs > \
+            /builder/ea_3588s.git/release/${{ steps.init.outputs.build_tag }}_rockdev.img.squashfs.sha256
+          sha256sum /builder/ea_3588s.git/release/${{ steps.init.outputs.build_tag }}_rockdev.img.rar > \
+            /builder/ea_3588s.git/release/${{ steps.init.outputs.build_tag }}_rockdev.img.rar.sha256
           echo "status=success" >> ${GITHUB_OUTPUT}
 
       - name: Upload Image to Release
         uses: ncipollo/release-action@main
         if: ${{ steps.generate_rockdev_image.outputs.status }} == 'success' && !cancelled()
         with:
-          tag: Armbian_DC-A588_Image_5.10.110
-          artifacts: /builder/dc-a588.git/release/*
+          tag: Armbian_ea_3588s_Image_5.10.110
+          artifacts: /builder/ea_3588s.git/release/*
           allowUpdates: true
           removeArtifacts: false
           replacesArtifacts: true
           token: ${{ secrets.GITHUB_TOKEN }}
           body: |
-            ### DC-A588镜像说明
+            ### ea_3588s镜像说明
 
             1. 镜像命名规则
-            以 * Armbian_DC-A588_noble_5.10.226_cli_01_rockdev.img.rar** 为例
+            以 * Armbian_ea_3588s_noble_5.10.226_cli_01_rockdev.img.rar** 为例
 
-            - "Armbian_DC-A588" 固定前缀
+            - "Armbian_ea_3588s" 固定前缀
             - "noble" 发行版，可选 (jammy,noble,bookworm,bullseye)
             - "5.10.226" 内核版本号，可选 (5.10.110,5.10.226,6.1.115)
             - "cli" 桌面环境，可选 (cli,xfce,gnome)
