@@ -4,16 +4,31 @@ set -xe
 
 # set config
 cp -a ea3588s_defconfig ./arch/arm64/configs/ea3588s_defconfig
-make ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- ea3588s_defconfig
+make ARCH=arm64 \
+	CROSS_COMPILE=aarch64-linux-gnu- \
+	LOCALVERSION="-kdev" \
+	KBUILD_BUILD_USER="builder" \
+	KBUILD_BUILD_HOST="kdevbuilder" \
+	ea3588s_defconfig
 
 # build dtb
 dtc -I dts -O dtb ea3588s.dts -o ea3588s.dtb
 
 # build kernel
-make ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- -j`nproc`
+make ARCH=arm64 \
+	CROSS_COMPILE=aarch64-linux-gnu- \
+	LOCALVERSION="-kdev" \
+	KBUILD_BUILD_USER="builder" \
+	KBUILD_BUILD_HOST="kdevbuilder" \
+	-j `nproc`
 
 # build modules
-make ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- modules -j`nproc`
+make ARCH=arm64 \
+	CROSS_COMPILE=aarch64-linux-gnu- \
+	LOCALVERSION="-kdev" \
+	KBUILD_BUILD_USER="builder" \
+	KBUILD_BUILD_HOST="kdevbuilder" \
+	modules -j`nproc`
 
 # install modules
 mkdir -p ../rockdev/modules
