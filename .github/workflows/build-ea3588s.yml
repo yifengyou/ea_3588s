@@ -24,7 +24,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        set_release: [ bullseye, bookworm, jammy, noble ]
+        set_release: [ bullseye, bookworm, noble ]
         set_desktop: [ cli, gnome, xfce ]
         exclude:
           - set_release: bullseye
