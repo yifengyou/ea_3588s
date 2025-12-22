@@ -158,8 +158,8 @@ jobs:
         working-directory: /builder/ea_3588s.git
         if: ${{ steps.compile_armbian.outputs.status }} == 'success' && !cancelled()
         run: |
-          chmod +x /builder/ea_3588s.git/scripts/extract-rootfs-from-armbian.sh
-          /builder/ea_3588s.git/scripts/extract-rootfs-from-armbian.sh /builder/armbian.git/output/images/
+          chmod +x /builder/ea_3588s.git/tools/extract-rootfs-from-armbian.sh
+          /builder/ea_3588s.git/tools/extract-rootfs-from-armbian.sh /builder/armbian.git/output/images/
           ls -alh /builder/armbian.git/output/images/rootfs.img
           echo "status=success" >> ${GITHUB_OUTPUT}
 
@@ -174,7 +174,12 @@ jobs:
           sync
           sudo umount /mnt
           mkdir -p /builder/ea_3588s.git/release
+          mkdir -p /builder/ea_3588s.git/ouput-temp/
+
+          cp -a /builder/ea_3588s.git/rockdev/uboot.img /builder/ea_3588s.git/ouput-temp/
+          cp -a /builder/ea_3588s.git/rockdev/boot.img /builder/ea_3588s.git/ouput-temp/
           mv /builder/armbian.git/output/images/rootfs.img /builder/ea_3588s.git/ouput-temp/
+          
           cd /builder/ea_3588s.git/ouput-temp/
           mksquashfs rootfs.img  /builder/ea_3588s.git/release/${{ steps.init.outputs.build_tag }}_rootfs.img.squashfs
           sha256sum /builder/ea_3588s.git/release/${{ steps.init.outputs.build_tag }}_rootfs.img.squashfs > \
@@ -196,6 +201,7 @@ jobs:
           # afptool      : /builder/ea_3588s.git/tools/afptool
           # rkImageMaker : /builder/ea_3588s.git/tools/rkImageMaker
           # template     : /builder/ea_3588s.git/ouput-temp
+
 
           mkdir -p /builder/ea_3588s.git/release
           mkdir -p /builder/ea_3588s.git/output-updatable-image
