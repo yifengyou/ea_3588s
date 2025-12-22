@@ -176,10 +176,11 @@ jobs:
           mkdir -p /builder/ea_3588s.git/release
           mkdir -p /builder/ea_3588s.git/ouput-temp/
 
+          cp -a /builder/ea_3588s.git/template/* /builder/ea_3588s.git/ouput-temp/
           cp -a /builder/ea_3588s.git/rockdev/uboot.img /builder/ea_3588s.git/ouput-temp/
           cp -a /builder/ea_3588s.git/rockdev/boot.img /builder/ea_3588s.git/ouput-temp/
           mv /builder/armbian.git/output/images/rootfs.img /builder/ea_3588s.git/ouput-temp/
-          
+
           cd /builder/ea_3588s.git/ouput-temp/
           mksquashfs rootfs.img  /builder/ea_3588s.git/release/${{ steps.init.outputs.build_tag }}_rootfs.img.squashfs
           sha256sum /builder/ea_3588s.git/release/${{ steps.init.outputs.build_tag }}_rootfs.img.squashfs > \
@@ -264,7 +265,7 @@ jobs:
         uses: ncipollo/release-action@main
         if: ${{ steps.generate_rockdev_image.outputs.status }} == 'success' && !cancelled()
         with:
-          tag: Armbian_ea_3588s_Image_5.10.110
+          tag: Armbian_EA_3588S_Image_5.10.110
           artifacts: /builder/ea_3588s.git/release/*
           allowUpdates: true
           removeArtifacts: false
@@ -274,17 +275,12 @@ jobs:
             ### ea_3588s镜像说明
 
             1. 镜像命名规则
-            以 * Armbian_ea_3588s_noble_5.10.226_cli_01_rockdev.img.rar** 为例
+            以 * Armbian_EA_3588S_noble_5.10.226_cli_rockdev.img.rar** 为例
 
             - "Armbian_ea_3588s" 固定前缀
             - "noble" 发行版，可选 (jammy,noble,bookworm,bullseye)
             - "5.10.226" 内核版本号，可选 (5.10.110,5.10.226,6.1.115)
             - "cli" 桌面环境，可选 (cli,xfce,gnome)
-            - "01" 镜像模板，对应名称如下
-              - (01) "GB_A588_ubuntu22.04.5_20250517_180656_xfce4-v01"
-              - (02) "A588_ubuntu20.04_20230202-135921_V1.0"
-              - (03) "GB-RK3588-ubuntu20.04-20250610-105959-V1.38-ALL-A-CM"
-              - (04) "rk3588_linux_openSdk"
             - "rockdev" 镜像类型，包括一下三种类型
               - rockdev: RKDevTool + 多个小image镜像（uboot.img、boot.img、rootfs.img等）
               - update : RKdevTool + update.img
