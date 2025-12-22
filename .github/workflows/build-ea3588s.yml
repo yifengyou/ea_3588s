@@ -2,40 +2,40 @@
 # Description: Build Image For EA_3588S
 #==========================================================================
 
-name: Build Image For DEA_3588S
+name: Build Image For EA_3588S
 
 on:
   repository_dispatch:
-    workflow_dispatch:
-      inputs:
-        set_release:
-          description: "Select OS Release."
-          required: true
-          default: "noble"
-          type: choice
-          options:
-            - jammy
-            - noble
-            - bookworm
-            - bullseye
-        set_kernel:
-          description: "Select kernel version"
-          required: true
-          default: "5.10.226"
-          type: choice
-          options:
-            - 5.10.110
-            - 5.10.226
-            - 6.1.115
-        set_desktop:
-          description: "Set desktop type"
-          required: true
-          default: "cli"
-          type: choice
-          options:
-            - cli
-            - xfce
-            - gnome
+  workflow_dispatch:
+    inputs:
+      set_release:
+        description: "Select OS Release."
+        required: true
+        default: "noble"
+        type: choice
+        options:
+          - jammy
+          - noble
+          - bookworm
+          - bullseye
+      set_kernel:
+        description: "Select kernel version"
+        required: true
+        default: "5.10.226"
+        type: choice
+        options:
+          - 5.10.110
+          - 5.10.226
+          - 6.1.115
+      set_desktop:
+        description: "Set desktop type"
+        required: true
+        default: "cli"
+        type: choice
+        options:
+          - cli
+          - xfce
+          - gnome
 
 env:
   TZ: America/New_York
