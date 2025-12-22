@@ -4,16 +4,6 @@ on:
   repository_dispatch:
   workflow_dispatch:
     inputs:
-      set_template:
-        description: "Select template"
-        required: true
-        default: "GB_A588_ubuntu22.04.5_20250517_180656_xfce4-v01"
-        type: choice
-        options:
-          - "GB_A588_ubuntu22.04.5_20250517_180656_xfce4-v01" # 01
-          - "A588_ubuntu20.04_20230202-135921_V1.0" # 02
-          - "GB-RK3588-ubuntu20.04-20250610-105959-V1.38-ALL-A-CM" #03
-          - "rk3588_linux_openSdk" # 04
 
 env:
   TZ: America/New_York
@@ -24,7 +14,18 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        set_release: [ bullseye, bookworm, noble ]
+        # set_release: [ bullseye, bookworm, jammy, noble ]
+        set_release: [ bullseye, bookworm, jammy, noble, focal, forky, oracular, plucky, resolute, trixie ]
+        # bullseye	Debian 11	    Oldstable（旧稳定版）	2021年8月	安全支持将持续至 2026年6月（LTS）
+        # bookworm	Debian 12	    Stable（当前稳定版）	2023年6月	当前官方推荐稳定版本
+        # trixie	Debian 13	    Testing（测试版）	预计 2025 年中发布	当前处于开发冻结前阶段
+        # forky	    Debian 14	    Unstable（未来开发版）	尚未发布	在 sid 之后的下一个开发代号
+        # focal	    Ubuntu 20.04	LTS（长期支持）	2020年4月	标准支持已于 2025年4月结束；需 Ubuntu Pro 获取扩展安全维护（ESM）
+        # jammy	    Ubuntu 22.04	LTS	2022年4月	免费支持至 2027年4月（桌面/服务器）
+        # noble	    Ubuntu 24.04	LTS	2024年4月	最新 LTS，支持至 2029年4月
+        # oracular	Ubuntu 24.10	普通版（非LTS）	2024年10月	支持至 2025年7月（仅9个月）
+        # plucky	Ubuntu 25.04	普通版（计划）	预计 2025年4月	尚未发布，开发代号
+        # resolute	Ubuntu 25.10	普通版（计划）	预计 2025年10月	未来版本，已公布代号
         set_desktop: [ cli, gnome, xfce ]
         exclude:
           - set_release: bullseye
@@ -59,7 +60,7 @@ jobs:
           sudo rm -rf ~/{.cargo,.dotnet,.rustup}
           sudo timedatectl set-timezone "${TZ}"
           # init output prefix  ${{ steps.init.outputs.build_tag }}
-          echo "build_tag=Armbian_ea_3588s_${{ matrix.set_release }}_5.10.110_${{ matrix.set_desktop }}" >> ${GITHUB_OUTPUT}
+          echo "build_tag=Armbian_ea_3588s_${{ matrix.set_release }}_5.10.226_${{ matrix.set_desktop }}" >> ${GITHUB_OUTPUT}
           echo "status=success" >> ${GITHUB_OUTPUT}
 
       - name: Create simulated physical disk
@@ -265,7 +266,7 @@ jobs:
         uses: ncipollo/release-action@main
         if: ${{ steps.generate_rockdev_image.outputs.status }} == 'success' && !cancelled()
         with:
-          tag: Armbian_EA_3588S_Image_5.10.110
+          tag: Armbian_EA_3588S_Image_5.10.226
           artifacts: /builder/ea_3588s.git/release/*
           allowUpdates: true
           removeArtifacts: false
@@ -278,8 +279,8 @@ jobs:
             以 * Armbian_EA_3588S_noble_5.10.226_cli_rockdev.img.rar** 为例
 
             - "Armbian_ea_3588s" 固定前缀
-            - "noble" 发行版，可选 (jammy,noble,bookworm,bullseye)
-            - "5.10.226" 内核版本号，可选 (5.10.110,5.10.226,6.1.115)
+            - "noble" 发行版，可选 (bullseye, bookworm, jammy, noble, focal, forky, oracular, plucky, resolute, trixie)
+            - "5.10.226" 内核版本号
             - "cli" 桌面环境，可选 (cli,xfce,gnome)
             - "rockdev" 镜像类型，包括一下三种类型
               - rockdev: RKDevTool + 多个小image镜像（uboot.img、boot.img、rootfs.img等）
