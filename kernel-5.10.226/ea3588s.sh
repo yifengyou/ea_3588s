@@ -22,20 +22,21 @@ find . -name "*.ko" |xargs -i cp {} ../rockdev/modules/
 KVER=`make kernelrelease`
 
 dd if=/dev/zero of=../rockdev/boot.img bs=1M count=60
+
 sudo mkfs.ext2 -U 7A3F0000-0000-446A-8000-702F00006273 -L kdevboot ../rockdev/boot.img
 sudo mount ../rockdev/boot.img /mnt
-mkdir -p /mnt/dtb
+sudo mkdir -p /mnt/dtb
 
-cp -f ea3588s.dtb /mnt/dtb
-cp -f arch/arm64/boot/Image /mnt/vmlinuz-${KVER}
-cp -f .config /mnt/config-${KVER}
-cp -f System.map /mnt/System.map-${KVER}
-touch /mnt/initrd.img-${KVER}
+sudo cp -f ea3588s.dtb /mnt/dtb
+sudo cp -f arch/arm64/boot/Image /mnt/vmlinuz-${KVER}
+sudo cp -f .config /mnt/config-${KVER}
+sudo cp -f System.map /mnt/System.map-${KVER}
+sudo touch /mnt/initrd.img-${KVER}
+sudo mkdir -p /mnt/extlinux/
+sudo cp -f extlinux.conf /mnt/extlinux/
+sudo cp -f extlinux.conf /mnt/
 
-mkdir -p /mnt/extlinux/
-cp -f extlinux.conf /mnt/extlinux/
-cp -f extlinux.conf /mnt/
-find /mnt
+sudo find /mnt
 sync
 sudo umount /mnt
 
