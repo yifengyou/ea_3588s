@@ -6,10 +6,18 @@ set -xe
 cp -a ea3588s_defconfig ./arch/arm64/configs/ea3588s_defconfig
 make ARCH=arm64 \
 	CROSS_COMPILE=aarch64-linux-gnu- \
-	LOCALVERSION="-kdev" \
 	KBUILD_BUILD_USER="builder" \
 	KBUILD_BUILD_HOST="kdevbuilder" \
 	ea3588s_defconfig
+
+# check kver
+KVER=$(make kernelrelease)
+KVER="${KVER/kdev*/kdev}"
+if [[ "$KVER" != *kdev ]]; then
+    echo "ERROR: KVER does not end with 'kdev'"
+    exit 1
+fi
+echo "KVER: ${KVER}"
 
 # build dtb
 dtc -I dts -O dtb ea3588s.dts -o ea3588s.dtb
@@ -17,7 +25,6 @@ dtc -I dts -O dtb ea3588s.dts -o ea3588s.dtb
 # build kernel
 make ARCH=arm64 \
 	CROSS_COMPILE=aarch64-linux-gnu- \
-	LOCALVERSION="-kdev" \
 	KBUILD_BUILD_USER="builder" \
 	KBUILD_BUILD_HOST="kdevbuilder" \
 	-j `nproc`
@@ -25,7 +32,6 @@ make ARCH=arm64 \
 # build modules
 make ARCH=arm64 \
 	CROSS_COMPILE=aarch64-linux-gnu- \
-	LOCALVERSION="-kdev" \
 	KBUILD_BUILD_USER="builder" \
 	KBUILD_BUILD_HOST="kdevbuilder" \
 	modules -j`nproc`
@@ -34,7 +40,6 @@ make ARCH=arm64 \
 mkdir -p ../rockdev/modules
 find . -name "*.ko" |xargs -i cp {} ../rockdev/modules/
 
-KVER=`make kernelrelease`
 
 dd if=/dev/zero of=../rockdev/boot.img bs=1M count=60
 
