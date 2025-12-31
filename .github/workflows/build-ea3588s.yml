@@ -171,7 +171,9 @@ jobs:
         run: |
           # hack rootfs, must start with sudo
           sudo mount rootfs.img /mnt
-          # sudo bash -c 'echo "tmpfs /tmp tmpfs defaults,nosuid 0 0" >> /mnt/etc/fstab'
+          sudo cp -a /builder/ea_3588s.git/tools/hack-rootfs.sh /mnt/
+          sudo chmod +x /mnt/hack-rootfs.sh
+          sudo chroot /mnt sh -c "/hack-rootfs.sh"
           sync
           sudo umount /mnt
           mkdir -p /builder/ea_3588s.git/release
