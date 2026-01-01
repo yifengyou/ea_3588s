@@ -172,6 +172,7 @@ jobs:
           # hack rootfs, must start with sudo
           sudo mount rootfs.img /mnt
           sudo cp -a /builder/ea_3588s.git/tools/hack-rootfs.sh /mnt/
+          sudo cp -a /builder/ea_3588s.git/tools/armbian_first_run.txt /mnt/boot/
           sudo chmod +x /mnt/hack-rootfs.sh
           sudo chroot /mnt sh -c "/hack-rootfs.sh"
           sync

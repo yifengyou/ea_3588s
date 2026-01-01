@@ -1,0 +1,4 @@
+root_password=tomorrow
+username=admin
+user_password=admin
+shell=bash
