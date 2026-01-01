@@ -55,6 +55,7 @@ sudo touch /mnt/initrd.img-${KVER}
 sudo mkdir -p /mnt/extlinux/
 sudo cp -f extlinux.conf /mnt/extlinux/
 sudo cp -f extlinux.conf /mnt/
+sudo cp -f armbian_first_run.txt /mnt/
 
 sudo find /mnt
 sync
