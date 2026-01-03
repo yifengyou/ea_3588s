@@ -13,5 +13,8 @@ fi
 
 chmod +x /etc/rc.local
 
+
+sed -i 's/NanoPC T6/EA_3588S/g' /etc/armbian-*
+
 echo ok > /etc/hack
 
