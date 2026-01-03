@@ -285,6 +285,9 @@ jobs:
             - "noble" 发行版，可选 (bullseye, bookworm, jammy, noble, focal, forky, oracular, plucky, resolute, trixie)
             - "5.10.226" 内核版本号
             - "cli" 桌面环境，可选 (cli,xfce,gnome)
+              - cli: command line 文本界面
+              - xfce : xfce图形界面
+              - gnome : gnome图形界面
             - "rockdev" 镜像类型，包括一下三种类型
               - rockdev: RKDevTool + 多个小image镜像（uboot.img、boot.img、rootfs.img等）
               - update : RKdevTool + update.img
@@ -293,11 +296,12 @@ jobs:
             2. 系统密码
 
             - 默认用户名(Default username): root
-            - 默认密码(Default password): 123
+            - 默认密码(Default password): 1234
 
             3. rockdev构建输出(rockdev.squashfs/rockdev.rar)
 
             带windows更新工具RKDevTool，开箱即用。包含以下目录结构，windows下载后解压，执行RKDevTool.exe即可。
+
             ```
             RKDevTool/
             ├── bin
